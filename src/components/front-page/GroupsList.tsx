@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { Group } from './Group';
 
@@ -11,7 +10,4 @@ export const GroupsList = (props) => {
       </ul>
     </div>
   );
-};
-GroupsList.PropTypes = {
-  groups: PropTypes.arrayOf(PropTypes.string)
 };

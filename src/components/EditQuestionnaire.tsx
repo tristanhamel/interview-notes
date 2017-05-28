@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 class EditQuestionnaireComponent extends React.Component {
@@ -20,20 +19,17 @@ class EditQuestionnaireComponent extends React.Component {
           Editing view
         </h2>
         <div className="container">
-          <h3>{this.state.title}</h3>
-          <p>{this.state.description}</p>
+          {/*<h3>{this.state.title}</h3>*/}
+          {/*<p>{this.state.description}</p>*/}
         </div>
       </edit-questionnaire>
     );
   }
 }
-EditQuestionnaireComponent.propTypes = {
-  match: PropTypes.object
-};
 
 const mapStateToProps = (state, ownProps) => ({
   title: state.edited.title,
   description: state.edited.description
 });
 
-export const EditQuestionaire = connect(mapStateToProps)(EditQuestionnaireComponent);
+export const EditQuestionnaire = connect(mapStateToProps)(EditQuestionnaireComponent);
