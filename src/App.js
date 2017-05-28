@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
-import { routes } from './config/routes';
+import { Menu } from './components/Menu';
+import { Main } from './components/Main';
 
-ReactDOM.render(
-  (<BrowserRouter>
-    {routes}
-   </BrowserRouter>),
-  document.getElementById('app')
+const App = () => (
+  <div className="main-container">
+    <Menu />
+    <Main/>
+  </div>
+);
+
+ReactDOM.render((
+  <HashRouter>
+    <App />
+   </HashRouter>
+  ),document.getElementById('app')
 );

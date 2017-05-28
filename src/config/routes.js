@@ -1,11 +1,12 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import { Main } from '../components/Main';
-import { Home } from '../components/Home';
+import { EditQuestionnaire } from '../components/EditQuestionnaire';
 
 export const routes = (
-  <Route path="/" component={Main}>
-
-  </Route>
+  <Switch>
+    <Route path="/" component={Main}></Route>
+    <Route path="/edit-questionnaire" component={EditQuestionnaire}></Route>
+  </Switch>
 );
