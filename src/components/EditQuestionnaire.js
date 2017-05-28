@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-export class EditQuestionnaire extends React.Component {
+class EditQuestionnaireComponent extends React.Component {
   constructor(props) {
     super(props);
 
-    // take the title from url param or set default
-    this.state = {
-      title: this.props.match.params.title || 'Title',
-      description: 'Description'
-    } ;
+    // // take the title from url param or set default
+    // this.state = {
+    //   title: this.props.match.params.title || 'Title',
+    //   description: 'Description'
+    // } ;
   }
 
   render () {
@@ -26,6 +27,13 @@ export class EditQuestionnaire extends React.Component {
     );
   }
 }
-EditQuestionnaire.propTypes = {
+EditQuestionnaireComponent.propTypes = {
   match: PropTypes.object
 };
+
+const mapStateToProps = (state, ownProps) => ({
+  title: state.edited.title,
+  description: state.edited.description
+});
+
+export const EditQuestionaire = connect(mapStateToProps)(EditQuestionnaireComponent);
