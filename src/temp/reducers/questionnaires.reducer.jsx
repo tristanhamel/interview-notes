@@ -11,8 +11,8 @@ const initialState = [
         title: 'company3'
     }
 ];
-export const questionnaires = (state = initialState, { type, payload }) => {
-    switch (type) {
+export const questionnaires = (state = initialState, action) => {
+    switch (action.type) {
         default:
             return state;
     }
