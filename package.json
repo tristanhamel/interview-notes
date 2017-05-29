@@ -18,6 +18,7 @@
     "reselect": "^3.0.1"
   },
   "devDependencies": {
+    "@types/redux-thunk": "^2.1.0",
     "@types/reselect": "^2.2.0",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
