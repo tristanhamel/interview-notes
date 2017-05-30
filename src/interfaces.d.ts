@@ -6,24 +6,24 @@ export interface IQuestion {
 }
 
 export interface ITextQuestion extends  IQuestion {
-  response: string
+  placeholder: string
 }
 
 export interface IYesNoQuestion extends IQuestion {
-  response: boolean
+  options: Array<{label: string, value: any}>
 }
 
 export interface IResponse {
   questionId: string
-  response: string | boolean
+  value: string | boolean
 }
 
 export interface ITextResponse extends  IQuestion {
-  response: string
+  value: string
 }
 
 export interface IYesNoResponse extends IQuestion {
-  response: boolean
+  value: boolean
 }
 
 export interface ITemplate {
