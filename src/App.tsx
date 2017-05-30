@@ -9,6 +9,9 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { rootReducer } from './reducers/reducers';
 
+// to be removed
+import initialState from './dummy-state.json';
+
 import { Menu } from './components/Menu';
 import { Main } from './components/Main';
 
@@ -21,6 +24,7 @@ const App = () => (
 
 const store = createStore(
   rootReducer,
+  initialState,
   composeWithDevTools(
     applyMiddleware(thunk)
   )

@@ -1,0 +1,44 @@
+{
+  "edited": null,
+  "selectedGroup": null,
+  "groups": [
+    {
+      "created_at": "1493646665",
+      "last_modified": "1493646665",
+      "id": "1",
+      "title": "Group1",
+      "description": "in August",
+      "questionnaires": ["1", "2"]
+    },
+    {
+      "id": "2",
+      "created_at": "1493733065",
+      "last_modified": "1493733065",
+      "title": "Group2",
+      "description": "in September",
+      "questionnaires": ["3"]
+    }
+  ],
+  "questionnaires": [
+    { "id": "1",
+      "created_at": "1493646665",
+      "last_modified": "1493646665",
+      "title": "company1",
+      "questions": [
+
+      ]
+    },
+    {
+      "id": "2",
+      "created_at": "1493646665",
+      "last_modified": "1493646665",
+      "title": "company2"
+    },
+    {
+      "id": "3",
+      "created_at": "1493733065",
+      "last_modified": "1493733065",
+      "title": "company3"
+    }
+  ]
+}

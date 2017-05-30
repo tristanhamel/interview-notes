@@ -1,18 +1,62 @@
+export interface IQuestion {
+  id: string,
+  type: string,
+  label: string,
+  score: -1 | 0 | 1,
+}
+
+export interface ITextQuestion extends  IQuestion {
+  response: string
+}
+
+export interface IYesNoQuestion extends IQuestion {
+  response: boolean
+}
+
+export interface IResponse {
+  questionId: string
+  response: string | boolean
+}
+
+export interface ITextResponse extends  IQuestion {
+  response: string
+}
+
+export interface IYesNoResponse extends IQuestion {
+  response: boolean
+}
+
+export interface ITemplate {
+  questions: Array<IQuestion>
+}
+
 export interface IQuestionnaire {
   id: string,
-  title: string
+  created_at: Date,
+  last_modified: Date,
+  title: string,
+  responses: Array<IResponse>
 }
 
 export interface IGroup {
   id: string,
+  created_at: Date,
+  last_modified: Date,
   title: string,
   description: string,
-  questionnaires: Array<string>
+  questionnairesIds: Array<string>
+  template: ITemplate
 }
 
-export interface IGroupReselect {
-  id: string,
-  title: string,
-  description: string,
+export interface IGroupReselect extends IGroup {
+  questionnaires: Array<IQuestionnaire>
+}
+
+export interface IState {
+  selectedGroup: string,
+  created_at: Date,
+  last_modified: Date,
+  edited: string,
+  groups: Array<IGroup>,
   questionnaires: Array<IQuestionnaire>
 }
