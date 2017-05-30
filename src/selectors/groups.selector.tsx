@@ -11,7 +11,7 @@ export const groups = createSelector(
     return groups.map(group => Object.assign(
       {},
       group,
-      {questionnaires: group.questionnaires.map(id => questionnaires.find(q => q.id === id))}
+      {questionnaires: group.questionnairesIds.map(id => questionnaires.find(q => q.id === id))}
     ));
   }
 );

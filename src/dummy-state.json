@@ -8,7 +8,7 @@
       "id": "1",
       "title": "Group1",
       "description": "in August",
-      "questionnaires": ["1", "2"]
+      "questionnairesIds": ["1", "2"]
     },
     {
       "id": "2",
@@ -16,7 +16,7 @@
       "last_modified": "1493733065",
       "title": "Group2",
       "description": "in September",
-      "questionnaires": ["3"]
+      "questionnairesIds": ["3"]
     }
   ],
   "questionnaires": [

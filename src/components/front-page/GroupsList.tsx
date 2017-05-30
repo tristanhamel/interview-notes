@@ -10,17 +10,23 @@ interface IProps {
 }
 
 export const GroupsList = (props: IProps) => {
-  const onClick = (id) => props.setSelectedGroup(id);
+  const isSelected = (id) => props.selectedGroup && props.selectedGroup.id === id;
 
   return (
     <div>
       <ul>
-        {props.groups.map((group, i) =>
-          <Group group={group}
-                 key={i}
-                 onClick={onClick}
-                 isSelected={props.selectedGroup && props.selectedGroup.id === group.id}>
-          </Group>)}
+        {props.groups.map((group, i) => (
+          <div>
+            <h3 onClick={() => props.setSelectedGroup(group.id)}>
+              {!isSelected(group.id) && <span className="glyphicon glyphicon-folder-close"></span>}
+              {isSelected(group.id) && <span className="glyphicon glyphicon-folder-open"></span>}
+              &nbsp;
+              {group.title}
+              &nbsp;
+              ({group.questionnairesIds.length})
+            </h3>
+          </div>
+        ))}
       </ul>
     </div>
   );
