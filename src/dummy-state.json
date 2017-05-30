@@ -3,8 +3,8 @@
   "selectedGroup": null,
   "groups": [
     {
-      "created_at": "1493646665",
-      "last_modified": "1493646665",
+      "created_at": 1493646665000,
+      "last_modified": 1493646665000,
       "id": "1",
       "title": "Group1",
       "description": "in August",
@@ -12,8 +12,8 @@
     },
     {
       "id": "2",
-      "created_at": "1493733065",
-      "last_modified": "1493733065",
+      "created_at": 1493733065000,
+      "last_modified": 1493733065000,
       "title": "Group2",
       "description": "in September",
       "questionnairesIds": ["3"]
@@ -21,8 +21,8 @@
   ],
   "questionnaires": [
     { "id": "1",
-      "created_at": "1493646665",
-      "last_modified": "1493646665",
+      "created_at": 1493646665000,
+      "last_modified": 1493646665000,
       "title": "company1",
       "questions": [
 
@@ -30,14 +30,14 @@
     },
     {
       "id": "2",
-      "created_at": "1493646665",
-      "last_modified": "1493646665",
+      "created_at": 1493646665000,
+      "last_modified": 1493646665000,
       "title": "company2"
     },
     {
       "id": "3",
-      "created_at": "1493733065",
-      "last_modified": "1493733065",
+      "created_at": 1493733065000,
+      "last_modified": 1493733065000,
       "title": "company3"
     }
   ]

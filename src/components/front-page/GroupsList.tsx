@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { Group } from './Group';
 import { IGroupReselect } from '../../interfaces';
 
 interface IProps {
@@ -16,7 +15,7 @@ export const GroupsList = (props: IProps) => {
     <div>
       <ul>
         {props.groups.map((group, i) => (
-          <div>
+          <div key={i}>
             <h3 onClick={() => props.setSelectedGroup(group.id)}>
               {!isSelected(group.id) && <span className="glyphicon glyphicon-folder-close"></span>}
               {isSelected(group.id) && <span className="glyphicon glyphicon-folder-open"></span>}
