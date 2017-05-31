@@ -1,8 +1,8 @@
 import * as actions from '../constants/ActionTypes';
 
-const initialState:string | null = null;
+const initialState = null;
 
-export const selectedGroup = (state = initialState, {type, payload}):string | null => {
+export const selectedGroup = (state = initialState, {type, payload}) => {
   switch (type) {
     case actions.SELECTED_GROUP_SET:
       return payload;

@@ -1,14 +1,6 @@
+import React from 'react';
 
-import * as React from 'react';
-
-interface MyProps {
-  onAddQuestionnaire: Function
-}
-interface MyState {}
-
-export class NewQuestionnaire extends React.Component<MyProps, MyState> {
-  isEditing: boolean;
-
+export class NewQuestionnaire extends React.Component {
   constructor(props) {
     super(props);
 

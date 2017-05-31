@@ -1,14 +1,6 @@
 import React from 'react';
 
-import { IGroupReselect } from '../../interfaces';
-
-interface IProps {
-  groups: Array<IGroupReselect>,
-  setSelectedGroup: Function,
-  selectedGroup: IGroupReselect
-}
-
-export const GroupsList = (props: IProps) => {
+export const GroupsList = (props) => {
   const isSelected = (id) => props.selectedGroup && props.selectedGroup.id === id;
 
   return (

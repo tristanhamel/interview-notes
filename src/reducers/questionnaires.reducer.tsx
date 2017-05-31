@@ -1,9 +1,8 @@
-import * as actions from '../constants/ActionTypes';
-import { IQuestionnaire } from '../interfaces';
+// import * as actions from '../constants/ActionTypes';
 
-const initialState: Array<IQuestionnaire> = [];
+const initialState = [];
 
-export const questionnaires = (state: Array<IQuestionnaire> = initialState, action: {type: string, payload: any}): Array<IQuestionnaire> => {
+export const questionnaires = (state = initialState, action) => {
   switch (action.type) {
     default:
       return state;

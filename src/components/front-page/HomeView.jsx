@@ -2,15 +2,8 @@ import React from 'react';
 
 import { GroupsList } from './GroupsList';
 import { GroupView } from './GroupView';
-import { IGroupReselect } from '../../interfaces';
 
-interface IProps {
-  groups: Array<IGroupReselect>,
-  selectedGroup: IGroupReselect,
-  setSelectedGroup: Function
-}
-
-export const HomeView = (props: IProps) => {
+export const HomeView = props => {
   return (
     <div>
       <h2 className="text-center">

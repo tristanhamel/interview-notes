@@ -3,23 +3,23 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  entry: './src/App.tsx',
+  entry: './src/App.jsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'app.js'
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
-
-    // add 'src' to the modules, so that when you import files you can do so with 'src' as the relative route
-    modules: ['src', 'node_modules']
+    extensions: ['.js', '.jsx']
   },
   module: {
     loaders: [
       {
-        test: /\.(tsx|js|jsx)$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loaders: ['babel-loader', 'ts-loader']
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'es2015']
+        }
       },
       {
         test: /\.(css|scss)$/,
