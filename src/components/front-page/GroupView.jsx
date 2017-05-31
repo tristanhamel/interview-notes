@@ -4,10 +4,6 @@ import { QuestionnairesTable } from './QuestionnairesTable';
 import { NewQuestionnaire } from './NewQuestionnaire';
 
 export const GroupView = (props) => {
-  const addNewQuestionnaire = (data) => {
-    console.log('added new questionnaire:' + data);
-  };
-
   const editQuestionnaire = (id) => {
     console.log('went to edit questionnaire ' + id);
   };
@@ -24,14 +20,14 @@ export const GroupView = (props) => {
       <h3>Questionnaires:</h3>
       <ul>
         {props.group.questionnaires.map((q, i) => {
-         return (
-           <li key={i} onClick={() => editQuestionnaire(q.id)}>
-             <div>{q.title}</div>
-           </li>
-         );
+          return (
+            <li key={i} onClick={() => editQuestionnaire(q.id)}>
+              <div>{q.title}</div>
+            </li>
+          );
         })}
          <li>
-           <NewQuestionnaire onAddQuestionnaire={data => addNewQuestionnaire(data)}></NewQuestionnaire>
+           <NewQuestionnaire onAddQuestionnaire={props.onAddQuestionnaire}></NewQuestionnaire>
          </li>
       </ul>
 

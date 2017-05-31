@@ -7,7 +7,6 @@ const getSelectedGroup = (state) => state.selectedGroup;
 export const groups = createSelector(
   [getGroups, getQuestionnaires],
   (g, q) => {
-
     return g.map(group => Object.assign(
       {},
       group,
@@ -18,6 +17,6 @@ export const groups = createSelector(
 
 export const selectedGroup = createSelector(
   [groups, getSelectedGroup],
-  (g, selectedGroup) =>
-    selectedGroup ? g.find(group => group.id === selectedGroup) : null
+  (g, sg) =>
+    sg ? g.find(group => group.id === sg) : null
 );

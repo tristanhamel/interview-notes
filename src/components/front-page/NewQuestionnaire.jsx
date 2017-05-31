@@ -4,25 +4,51 @@ export class NewQuestionnaire extends React.Component {
   constructor(props) {
     super(props);
 
-    this.isEditing = false;
+    this.state = {
+      isEditing: false,
+      newTitle: ''
+    };
+  }
+
+  onAdd(e) {
+    if(!this.state.newTitle.length) {
+      return;
+    }
+
+    this.props.onAddQuestionnaire(this.state.newTitle);
+    e.preventDefault();
+    this.reset();
+  }
+
+  onChange(title) {
+    this.setState({newTitle: title});
   }
 
   render() {
-    if(this.isEditing) {
+    if(this.state.isEditing) {
       return (
-      <form>
-        <input type="text"/>
-        <button type="submit" onClick={data => this.props.onAddQuestionnaire(data)}>Add</button>
-        <button type="cancel">Add</button>
+      <form onSubmit={e => this.onAdd(e)}>
+        <input type="text"
+               value={this.state.newTitle}
+               onChange={e => this.onChange(e.target.value)}/>
+        <button type="submit">Add</button>
+        <button type="cancel" onClick={() => this.reset()}>Cancel</button>
       </form>);
     }
 
     return (
-      <span>
+      <span onClick={() => this.setState({isEditing: true})}>
         <span>Add a new questionnaire</span>
             &nbsp;
         <span className="glyphicon glyphicon-plus"></span>
       </span>
     );
+  }
+
+  reset() {
+    this.setState({
+      isEditing: false,
+      newTitle: ''
+    });
   }
 }

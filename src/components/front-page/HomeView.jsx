@@ -17,7 +17,8 @@ export const HomeView = props => {
           </GroupsList>
         </div>
         <div className="col-md-8">
-          {props.selectedGroup && <GroupView group={props.selectedGroup}></GroupView>}
+          {props.selectedGroup && <GroupView group={props.selectedGroup}
+                                             onAddQuestionnaire={props.onAddQuestionnaire}></GroupView>}
         </div>
       </div>
     </div>
