@@ -57,6 +57,6 @@ export interface IState {
   created_at: Date,
   last_modified: Date,
   edited: string,
-  groups: Array<IGroup>,
-  questionnaires: Array<IQuestionnaire>
+  groups: IGroup[],
+  questionnaires: IQuestionnaire[]
 }

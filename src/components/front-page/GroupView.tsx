@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { QuestionnairesTable } from './QuestionnairesTable';
+
 export const GroupView = (props) => {
   const addNewQuestionnaire = () => {
     console.log('added new questionnaire');
@@ -33,6 +35,8 @@ export const GroupView = (props) => {
            <span className="glyphicon glyphicon-plus"></span>
          </li>
       </ul>
+
+      <QuestionnairesTable group={props.group}></QuestionnairesTable>
     </div>
   );
 };

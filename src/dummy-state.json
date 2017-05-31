@@ -8,7 +8,32 @@
       "id": "1",
       "title": "Group1",
       "description": "in August",
-      "questionnairesIds": ["1", "2"]
+      "questionnairesIds": ["1", "2"],
+      "template": {
+        "questions": [
+          {
+            "id": "1",
+            "type": "checkBox",
+            "label": "FlexTime",
+            "score": 0,
+            "options": ["Yes", "No"]
+          },
+          {
+            "id": "2",
+            "type": "checkBox",
+            "label": "Health coverage",
+            "score": 0,
+            "options": ["Yes", "No"]
+          },
+          {
+            "id": "3",
+            "type": "text",
+            "label": "Salary ($/y)",
+            "score": 0,
+            "placeholder": "salary"
+          }
+        ]
+      }
     },
     {
       "id": "2",
@@ -24,15 +49,40 @@
       "created_at": 1493646665000,
       "last_modified": 1493646665000,
       "title": "company1",
-      "questions": [
-
+      "responses": [
+        {
+          "questionId": "1",
+          "value": true
+        },
+        {
+          "questionId": "2",
+          "value": true
+        },
+        {
+          "questionId": "3",
+          "value": "60,000$"
+        }
       ]
     },
     {
       "id": "2",
       "created_at": 1493646665000,
       "last_modified": 1493646665000,
-      "title": "company2"
+      "title": "company2",
+      "responses": [
+        {
+          "questionId": "1",
+          "value": false
+        },
+        {
+          "questionId": "2",
+          "value": true
+        },
+        {
+          "questionId": "3",
+          "value": "80,000$"
+        }
+      ]
     },
     {
       "id": "3",
