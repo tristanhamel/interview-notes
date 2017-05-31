@@ -2,6 +2,29 @@
 # yarn lockfile v1
 
 
+"@types/history@*":
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/@types/history/-/history-4.5.1.tgz#da4a145410466eac20e94b51c8778a7551d1d4db"
+
+"@types/react-router-dom@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-4.0.4.tgz#49f4a7037958f743e764b807fcbc8062fe46e493"
+  dependencies:
+    "@types/history" "*"
+    "@types/react" "*"
+    "@types/react-router" "*"
+
+"@types/react-router@*":
+  version "4.0.10"
+  resolved "https://registry.yarnpkg.com/@types/react-router/-/react-router-4.0.10.tgz#8629cd11288e0c473e8230f347a064f919bca836"
+  dependencies:
+    "@types/history" "*"
+    "@types/react" "*"
+
+"@types/react@*", "@types/react@^15.0.25":
+  version "15.0.25"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-15.0.25.tgz#d396949cccc9a90b61755def9781e5aced9b2261"
+
 "@types/redux-thunk@^2.1.0":
   version "2.1.32"
   resolved "https://registry.yarnpkg.com/@types/redux-thunk/-/redux-thunk-2.1.32.tgz#27fac368ced9ea170bf15e5fa4a21d9201f73102"

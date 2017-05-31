@@ -1,10 +1,11 @@
-import React from 'react';
+import * as React from 'react';
 
 import { QuestionnairesTable } from './QuestionnairesTable';
+import { NewQuestionnaire } from './NewQuestionnaire';
 
 export const GroupView = (props) => {
-  const addNewQuestionnaire = () => {
-    console.log('added new questionnaire');
+  const addNewQuestionnaire = (data) => {
+    console.log('added new questionnaire:' + data);
   };
 
   const editQuestionnaire = (id) => {
@@ -29,10 +30,8 @@ export const GroupView = (props) => {
            </li>
          );
         })}
-         <li onClick={() => addNewQuestionnaire()}>
-           <span>Add a new questionnaire</span>
-           &nbsp;
-           <span className="glyphicon glyphicon-plus"></span>
+         <li>
+           <NewQuestionnaire onAddQuestionnaire={data => addNewQuestionnaire(data)}></NewQuestionnaire>
          </li>
       </ul>
 
