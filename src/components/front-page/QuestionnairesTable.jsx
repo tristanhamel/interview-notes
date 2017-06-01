@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { PGroupReselect } from '../../proptypes';
+
 export const QuestionnairesTable = (props) => {
   return (
     <div>
@@ -42,4 +44,7 @@ export const QuestionnairesTable = (props) => {
       </table>
     </div>
   );
+};
+QuestionnairesTable.propTypes = {
+  group: PGroupReselect
 };

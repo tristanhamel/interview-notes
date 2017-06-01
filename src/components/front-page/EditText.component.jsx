@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export class EditText extends React.Component {
   constructor(props) {
@@ -49,10 +50,19 @@ export class EditText extends React.Component {
                       onChange={e => this.onChange(e.target.value)}/>
           }
           <button type="submit">{this.props.submitLabel || 'OK'}</button>
-          <button type="cancel" onClick={() => this.reset()}>{this.props.CancelLabel || 'Cancel'}</button>
+          <button type="cancel" onClick={() => this.reset()}>{this.props.cancelLabel || 'Cancel'}</button>
         </form>
         }
       </div>
     );
   }
 }
+EditText.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+  text: PropTypes.string,
+  long: PropTypes.bool,
+  placeholder: PropTypes.string,
+  submitLabel: PropTypes.string,
+  cancelLabel: PropTypes.string,
+  onSave: PropTypes.func
+};

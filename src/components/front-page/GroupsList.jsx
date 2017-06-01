@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { PGroup } from '../../proptypes';
 
 export const GroupsList = (props) => {
   const isSelected = (id) => props.selectedGroup && props.selectedGroup.id === id;
@@ -22,3 +24,8 @@ export const GroupsList = (props) => {
     </div>
   );
 };
+
+GroupsList.propTypes = {
+  groups: PropTypes.arrayOf(PGroup)
+};
+

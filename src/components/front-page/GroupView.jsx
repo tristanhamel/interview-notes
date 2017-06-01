@@ -1,4 +1,6 @@
-import * as React from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { PGroup } from '../../proptypes';
 
 import { QuestionnairesTable } from './QuestionnairesTable';
 import { EditText } from './EditText.component';
@@ -74,3 +76,10 @@ export class GroupView extends React.Component{
     );
   }
 }
+GroupView.propTypes = {
+  onEditGroupProp: PropTypes.func,
+  onDeleteGroup: PropTypes.func,
+  onDeleteQuestionnaire: PropTypes.func,
+  onAddQuestionnaire: PropTypes.func,
+  group: PGroup
+};

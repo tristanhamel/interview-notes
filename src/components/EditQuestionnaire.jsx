@@ -27,7 +27,7 @@ class EditQuestionnaireComponent extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   title: state.edited.title,
   description: state.edited.description
 });

@@ -1,4 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+import { PGroupReselect } from '../../proptypes';
 
 import { GroupsList } from './GroupsList';
 import { GroupView } from './GroupView';
@@ -27,4 +30,13 @@ export const HomeView = props => {
       </div>
     </div>
   );
+};
+HomeView.propTypes = {
+  groups: PropTypes.arrayOf(PGroupReselect),
+  setSelectedGroup: PropTypes.func,
+  selectedGroup: PGroupReselect,
+  onAddQuestionnaire: PropTypes.func,
+  onDeleteQuestionnaire: PropTypes.func,
+  onEditGroupProp: PropTypes.func,
+  onDeleteGroup: PropTypes.func,
 };
