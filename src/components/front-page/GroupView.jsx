@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { PGroup } from '../../proptypes';
+import { Link } from 'react-router-dom';
 
 import { QuestionnairesTable } from './QuestionnairesTable';
 import { EditText } from './EditText.component';
@@ -8,10 +9,6 @@ import { EditText } from './EditText.component';
 export class GroupView extends React.Component{
   constructor(props) {
     super(props);
-  }
-
-  editQuestionnaire(id) {
-    console.log('went to edit questionnaire ' + id);
   }
 
   editGroupProp(prop) {
@@ -53,7 +50,9 @@ export class GroupView extends React.Component{
           {this.props.group.questionnaires.map((q, i) => {
             return (
               <li key={i}>
-                <a onClick={() => this.editQuestionnaire(q.id)}>{q.title}</a>
+                <Link to={`/questionnaire/${this.props.group.id}/${q.id}`}>
+                  {q.title}
+                </Link>
                 <span className="glyphicon glyphicon-trash"
                       onClick={() => this.props.onDeleteQuestionnaire(q.id)}></span>
               </li>

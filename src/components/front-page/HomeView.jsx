@@ -13,13 +13,13 @@ export const HomeView = props => {
         My app is here
       </h2>
       <div className="row">
-        <div className="col-md-4">
+        <div className="col-md-3">
           <GroupsList groups={props.groups}
                       setSelectedGroup={props.setSelectedGroup}
                       selectedGroup={props.selectedGroup}>
           </GroupsList>
         </div>
-        <div className="col-md-8">
+        <div className="col-md-9">
           {props.selectedGroup && <GroupView group={props.selectedGroup}
                                              onAddQuestionnaire={props.onAddQuestionnaire}
                                              onDeleteQuestionnaire={props.onDeleteQuestionnaire}

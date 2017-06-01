@@ -2,14 +2,21 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import { Front } from './Front';
-import { EditQuestionnaire } from './EditQuestionnaire';
+import { FillQuestionnaire } from './fill-questionnaire/FillQuestionnaireContainer';
 
 export class Main extends React.Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/" component={Front}></Route>
-        <Route path="/edit/:title?" component={EditQuestionnaire}></Route>
+        <Route name="main"
+               exact
+               path="/"
+               component={Front}>
+        </Route>
+        <Route name="questionnaire"
+               path="/questionnaire/:groupId/:questionnaireId"
+               component={FillQuestionnaire}>
+        </Route>
       </Switch>
     );
   }
