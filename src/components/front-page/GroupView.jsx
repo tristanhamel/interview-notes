@@ -1,62 +1,47 @@
 import * as React from 'react';
 
 import { QuestionnairesTable } from './QuestionnairesTable';
-import { NewQuestionnaire } from './NewQuestionnaire';
+import { EditText } from './EditText.component';
 
 export class GroupView extends React.Component{
   constructor(props) {
     super(props);
-
-    this.state = {
-      isEditingTitle: false,
-      newTitle: ''
-    };
   }
 
   editQuestionnaire(id) {
     console.log('went to edit questionnaire ' + id);
   }
 
-  onChange(newTitle) {
-    this.setState({newTitle});
+  editGroupProp(prop) {
+    this.props.onEditGroupProp(prop, this.props.group.id);
   }
 
-  onEditTitle() {
-    this.setState({isEditingTitle: true, newTitle: this.props.group.title});
-  }
-
-  resetEditTitle() {
-    this.setState({isEditingTitle: false, newTitle: ''});
-  }
-
-  saveEditTitle(e) {
-    this.props.onEditGroupTitle(this.state.newTitle, this.props.group.id);
+  deleteGroup(e) {
     e.preventDefault();
-    this.resetEditTitle();
+    this.props.onDeleteGroup(this.props.group.id);
   }
 
   render() {
     return (
       <div>
-        {!this.state.isEditingTitle &&
+        <EditText onSave={title => this.editGroupProp({ title })}
+                  text={this.props.group.title}>
           <div>
-            <h2 onClick={() => this.onEditTitle()}>{this.props.group.title}</h2>
+            <h2>{this.props.group.title}</h2>
             <span className="glyphicon glyphicon-trash"
-                  onClick={() => this.props.onDeleteGroup(this.props.group.id)}></span>
+                  onClick={e => this.deleteGroup(e)}></span>
           </div>
-        }
-        {this.state.isEditingTitle &&
-          <form onSubmit={e => this.saveEditTitle(e)}>
-            <input type="text"
-                   value={this.state.newTitle}
-                   onChange={e => this.onChange(e.target.value)}/>
-            <button type="submit">OK</button>
-            <button type="cancel" onClick={() => this.resetEditTitle()}>Cancel</button>
-          </form>
-        }
+        </EditText>
+
         <div className="small">Created on {new Date(this.props.group.created_at).toDateString()}</div>
         <div className="small">Last modified: {new Date(this.props.group.last_modified).toDateString()}</div>
-        <div>{this.props.group.description}</div>
+        <EditText onSave={description => this.editGroupProp({ description })}
+                  text={this.props.group.description}
+                  long={true}>
+          <div>
+            <span>{this.props.group.description}</span>
+          </div>
+        </EditText>
         <button className="btn btn-default">
           Edit template
         </button>
@@ -73,7 +58,14 @@ export class GroupView extends React.Component{
             );
           })}
            <li>
-             <NewQuestionnaire onAddQuestionnaire={this.props.onAddQuestionnaire}></NewQuestionnaire>
+             <EditText onSave={newTitle => this.props.onAddQuestionnaire(newTitle)}
+                       text=""
+                       placeholder="New Questionnaire"
+                       submitLabel="Add">
+               <span>Add a new questionnaire</span>
+               &nbsp;
+               <span className="glyphicon glyphicon-plus"></span>
+             </EditText>
            </li>
         </ul>
 

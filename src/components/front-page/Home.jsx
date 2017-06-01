@@ -14,7 +14,7 @@ const mapDispatchToProps = dispatch => ({
   setSelectedGroup: id => dispatch(setSelectedGroup(id)),
   onAddQuestionnaire: title => dispatch(addQuestionnaire(title)),
   onDeleteQuestionnaire: id => dispatch(deleteQuestionnaire(id)),
-  onEditGroupTitle: (title, id) => dispatch(editGroupProp({title}, id)),
+  onEditGroupProp: (prop, id) => dispatch(editGroupProp(prop, id)),
   onDeleteGroup: (id) => dispatch(deleteGroup(id))
 });
 
