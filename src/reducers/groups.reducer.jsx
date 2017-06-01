@@ -11,7 +11,7 @@ export const groups = (state = initialState, action) => {
       return state.filter(g => g.id !== action.payload);
 
     case actions.GROUPS_EDIT:
-      return state.map(g => g.id === action.id ? action.payload : g);
+      return state.map(g => g.id === action.payload.id ? action.payload : g);
 
     case actions.GROUPS_ADD_QUESTIONNAIRE: {
       const group = state.find(g => g.id === action.payload.groupId);

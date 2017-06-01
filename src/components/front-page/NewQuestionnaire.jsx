@@ -20,8 +20,8 @@ export class NewQuestionnaire extends React.Component {
     this.reset();
   }
 
-  onChange(title) {
-    this.setState({newTitle: title});
+  onChange(newTitle) {
+    this.setState({newTitle});
   }
 
   render() {
