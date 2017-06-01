@@ -1,4 +1,5 @@
 import * as actions from '../constants/ActionTypes';
+import { batchActions } from 'redux-batched-actions';
 
 export function addQuestionnaire(title, groupId) {
   const newQuestionnaire = {
@@ -10,19 +11,20 @@ export function addQuestionnaire(title, groupId) {
   };
 
   return (dispatch, getState) => {
-    if(!groupId) {
-      groupId = getState().selectedGroup;
-    }
+    groupId = groupId || getState().selectedGroup;
 
     dispatch({type: actions.QUESTIONNAIRES_ADD, payload: newQuestionnaire});
     dispatch({type: actions.GROUPS_ADD_QUESTIONNAIRE, payload: {groupId, questionnaireId: newQuestionnaire.id}});
   };
 }
 
-export function removeQuestionnaire(id, groupId) {
-  return dispatch => {
-    dispatch({type: actions.QUESTIONNAIRES_REMOVE, payload: id});
-    dispatch({type: actions.GROUPS_REMOVE_QUESTIONNAIRE, payload: { groupId, questionnaireId: id}});
+export function deleteQuestionnaire(id, groupId) {
+  return (dispatch, getState) => {
+    groupId = groupId || getState().selectedGroup;
+    dispatch(batchActions([
+      {type: actions.QUESTIONNAIRES_REMOVE, payload: id},
+      {type: actions.GROUPS_REMOVE_QUESTIONNAIRE, payload: { groupId, questionnaireId: id}}
+    ]));
   };
 }
 

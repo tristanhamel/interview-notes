@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import  thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { enableBatching } from 'redux-batched-actions';
 
 import { rootReducer } from './reducers/reducers';
 
@@ -23,7 +24,7 @@ const App = () => (
 );
 
 const store = createStore(
-  rootReducer,
+  enableBatching(rootReducer),
   initialState,
   composeWithDevTools(
     applyMiddleware(thunk)

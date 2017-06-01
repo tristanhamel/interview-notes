@@ -21,8 +21,10 @@ export const GroupView = (props) => {
       <ul>
         {props.group.questionnaires.map((q, i) => {
           return (
-            <li key={i} onClick={() => editQuestionnaire(q.id)}>
-              <div>{q.title}</div>
+            <li key={i}>
+              <a onClick={() => editQuestionnaire(q.id)}>{q.title}</a>
+              <span className="glyphicon glyphicon-trash"
+                    onClick={() => props.onDeleteQuestionnaire(q.id)}></span>
             </li>
           );
         })}
