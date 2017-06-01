@@ -38,16 +38,25 @@ export class GroupView extends React.Component{
   render() {
     return (
       <div>
-        {!this.state.isEditingTitle && <h2 onClick={() => this.onEditTitle()}>{this.props.group.title}</h2>}
-        {this.state.isEditingTitle && <form onSubmit={e => this.saveEditTitle(e)}>
-          <input type="text"
-                 value={this.state.newTitle}
-                 onChange={e => this.onChange(e.target.value)}/>
-          <button type="submit">OK</button>
-          <button type="cancel" onClick={() => this.resetEditTitle()}>Cancel</button>
-        </form>}
+        {!this.state.isEditingTitle &&
+          <div>
+            <h2 onClick={() => this.onEditTitle()}>{this.props.group.title}</h2>
+            <span className="glyphicon glyphicon-trash"
+                  onClick={() => this.props.onDeleteGroup(this.props.group.id)}></span>
+          </div>
+        }
+        {this.state.isEditingTitle &&
+          <form onSubmit={e => this.saveEditTitle(e)}>
+            <input type="text"
+                   value={this.state.newTitle}
+                   onChange={e => this.onChange(e.target.value)}/>
+            <button type="submit">OK</button>
+            <button type="cancel" onClick={() => this.resetEditTitle()}>Cancel</button>
+          </form>
+        }
         <div className="small">Created on {new Date(this.props.group.created_at).toDateString()}</div>
         <div className="small">Last modified: {new Date(this.props.group.last_modified).toDateString()}</div>
+        <div>{this.props.group.description}</div>
         <button className="btn btn-default">
           Edit template
         </button>

@@ -20,7 +20,8 @@ export const HomeView = props => {
           {props.selectedGroup && <GroupView group={props.selectedGroup}
                                              onAddQuestionnaire={props.onAddQuestionnaire}
                                              onDeleteQuestionnaire={props.onDeleteQuestionnaire}
-                                             onEditGroupTitle={props.onEditGroupTitle}>
+                                             onEditGroupTitle={props.onEditGroupTitle}
+                                             onDeleteGroup={props.onDeleteGroup}>
                                   </GroupView>}
         </div>
       </div>

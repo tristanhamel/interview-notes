@@ -17,6 +17,5 @@ export const groups = createSelector(
 
 export const selectedGroup = createSelector(
   [groups, getSelectedGroup],
-  (g, sg) =>
-    sg ? g.find(group => group.id === sg) : null
+  (g, sg) => sg ? g.find(group => group.id === sg) : null
 );

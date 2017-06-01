@@ -41,7 +41,25 @@
       "last_modified": 1493733065000,
       "title": "Group2",
       "description": "in September",
-      "questionnairesIds": ["3"]
+      "questionnairesIds": ["3"],
+      "template": {
+        "questions": [
+          {
+            "id": "1",
+            "type": "checkBox",
+            "label": "FlexTime",
+            "score": 0,
+            "options": ["Yes", "No"]
+          },
+          {
+            "id": "3",
+            "type": "text",
+            "label": "Salary ($/y)",
+            "score": 0,
+            "placeholder": "salary"
+          }
+        ]
+      }
     }
   ],
   "questionnaires": [
@@ -88,7 +106,8 @@
       "id": "3",
       "created_at": 1493733065000,
       "last_modified": 1493733065000,
-      "title": "company3"
+      "title": "company3",
+      "responses": []
     }
   ]
 }
