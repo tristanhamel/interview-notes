@@ -41,9 +41,11 @@ export class GroupView extends React.Component{
             <span>{this.props.group.description}</span>
           </div>
         </EditText>
-        <button className="btn btn-default">
-          Edit template
-        </button>
+        <Link to={`/edit-template/${this.props.group.id}`}>
+          <button className="btn btn-default">
+              Edit template
+          </button>
+        </Link>
 
         <h3>Questionnaires:</h3>
         <ul>

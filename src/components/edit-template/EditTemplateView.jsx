@@ -1,0 +1,56 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import { PQuestion, PGroup } from '../../proptypes';
+import { EditText } from '../EditText';
+import { AddQuestion } from './AddQuestion';
+import { EditQuestion } from '../questions/EditQuestion';
+
+export class EditTemplateView extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  editGroupProp(prop) {
+    this.props.onEditGroupProps(prop, this.props.group.id);
+  }
+
+  render() {
+    return (
+      <div className="fill-questionnaire">
+        <EditText onSave={title => this.editGroupProp({ title })}
+                  text={this.props.group.title}>
+          <h3>{this.props.group.title}</h3>
+        </EditText>
+
+        <EditText onSave={description => this.editQuestionnaireProp({ description })}
+                  text={this.props.group.description}
+                  long={true}>
+          <span>{this.props.group.description}</span>
+        </EditText>
+
+        {/*<div>*/}
+          {/*{this.props.group.template.questions.map((q, i) => {*/}
+            {/*return <EditQuestion question={q} key={i}*/}
+                                 {/*onChange={response => this.props.onEditQuestion(response, this.props.group.id)}*/}
+                                 {/*onDelete={questionId => this.props.onDeleteQuestion(questionId)}/>;*/}
+          {/*})}*/}
+        {/*</div>*/}
+        <div>
+          <AddQuestion templateQuestions={this.props.templateQuestions}
+                       onAddQuestion={question => this.props.onAddQuestion(question)}/>
+        </div>
+      </div>
+
+    );
+  }
+}
+
+EditTemplateView.propTypes = {
+  templateQuestions: PropTypes.arrayOf(PQuestion),
+  group: PGroup,
+  onAddQuestion: PropTypes.func,
+  onDeleteQuestion: PropTypes.func,
+  onEditQuestion: PropTypes.func,
+  onEditGroupProps: PropTypes.func
+};

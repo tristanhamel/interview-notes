@@ -53,7 +53,7 @@ export const PNumberResponse = PropTypes.shape(Object.assign({}, Response, {
 //   Templates
 // ------------------------------------------------------------
 
-export const PTemplate = PropTypes.shape({
+export const PQuestionnaireTemplate = PropTypes.shape({
   questions: PropTypes.arrayOf(PQuestion)
 });
 
@@ -81,7 +81,7 @@ const Group = {
   title: PropTypes.string,
   description: PropTypes.string,
   questionnairesIds: PropTypes.arrayOf(PropTypes.string),
-  template: PTemplate
+  template: PQuestionnaireTemplate
 };
 export const PGroup = PropTypes.shape(Group);
 
