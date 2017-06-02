@@ -13,22 +13,23 @@
         "questions": [
           {
             "id": "1",
-            "type": "checkBox",
+            "questionType": "yesNo",
             "label": "FlexTime",
             "score": 0,
             "options": ["Yes", "No"]
           },
           {
             "id": "2",
-            "type": "checkBox",
+            "questionType": "yesNo",
             "label": "Health coverage",
             "score": 0,
             "options": ["Yes", "No"]
           },
           {
             "id": "3",
-            "type": "text",
+            "questionType": "currency",
             "label": "Salary ($/y)",
+            "kind": "$",
             "score": 0,
             "placeholder": "salary"
           }
@@ -46,15 +47,16 @@
         "questions": [
           {
             "id": "1",
-            "type": "checkBox",
+            "questionType": "yesNo",
             "label": "FlexTime",
             "score": 0,
             "options": ["Yes", "No"]
           },
           {
             "id": "3",
-            "type": "text",
+            "questionType": "text",
             "label": "Salary ($/y)",
+            "kind": "$",
             "score": 0,
             "placeholder": "salary"
           }
@@ -67,6 +69,7 @@
       "created_at": 1493646665000,
       "last_modified": 1493646665000,
       "title": "company1",
+      "description": "Some great company",
       "responses": [
         {
           "questionId": "1",
@@ -78,7 +81,7 @@
         },
         {
           "questionId": "3",
-          "value": "60,000$"
+          "value": 60000
         }
       ]
     },
@@ -87,6 +90,7 @@
       "created_at": 1493646665000,
       "last_modified": 1493646665000,
       "title": "company2",
+      "description": "Some other great company",
       "responses": [
         {
           "questionId": "1",
@@ -98,7 +102,7 @@
         },
         {
           "questionId": "3",
-          "value": "80,000$"
+          "value": 80000
         }
       ]
     },
@@ -107,6 +111,7 @@
       "created_at": 1493733065000,
       "last_modified": 1493733065000,
       "title": "company3",
+      "description": "Yet another great company",
       "responses": []
     }
   ]

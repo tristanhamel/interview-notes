@@ -28,10 +28,24 @@ export function deleteQuestionnaire(id, groupId) {
   };
 }
 
-export function editQuestionnaire(questionnaire) {
-  questionnaire.last_modified = Date.now();
+export function editQuestionnaire(props, questionnaireId) {
+  props.last_modified = Date.now();
 
   return dispatch => {
-    dispatch({type: actions.QUESTIONNAIRES_EDIT, payload: questionnaire});
+    dispatch({type: actions.QUESTIONNAIRES_EDIT, payload: {props, questionnaireId}});
+  };
+}
+
+export function submitResponse(response, questionnaireId) {
+  console.log(response, questionnaireId);
+  return (dispatch, getState) => {
+    const questionnaire = getState().questionnaires.find(q => q.id === questionnaireId);
+    if(!questionnaire) {
+      return;
+    }
+
+    const responses = [...questionnaire.responses.filter(r => r.questionId !== response.questionId), response];
+
+    dispatch({type: actions.QUESTIONNAIRES_EDIT, payload: {props:{responses, last_modified: Date.now()}, questionnaireId}});
   };
 }

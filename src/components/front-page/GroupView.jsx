@@ -4,7 +4,7 @@ import { PGroup } from '../../proptypes';
 import { Link } from 'react-router-dom';
 
 import { QuestionnairesTable } from './QuestionnairesTable';
-import { EditText } from './EditText.component';
+import { EditText } from '../EditText';
 
 export class GroupView extends React.Component{
   constructor(props) {

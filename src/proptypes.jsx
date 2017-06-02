@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types';
 
+// ------------------------------------------------------------
+//   Questions
+// ------------------------------------------------------------
 export const Question = {
   id: PropTypes.string,
-  type: PropTypes.string,
+  questionType: PropTypes.oneOf(['yesNo', 'text', 'number', 'currency']),
   label: PropTypes.string,
-  score: PropTypes.oneOf([-1, 0, 1])
+  score: PropTypes.number
 };
 export const PQuestion = PropTypes.shape(Question);
 
@@ -13,25 +16,50 @@ export const PTextQuestion = PropTypes.shape(Object.assign({}, Question, {
 }));
 
 export const PYesNoQuestion = PropTypes.shape(Object.assign({}, Question, {
-  options: PropTypes.arrayOf({label: PropTypes.string, value: PropTypes.any})
+  // options: PropTypes.arrayOf(PropTypes.shape({label: PropTypes.string, value: PropTypes.any}))
+  options: PropTypes.array
 }));
 
-const PResponse = PropTypes.shape({
-  questionId: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
-});
+export const PNumberQuestion = PropTypes.shape(Object.assign({}, Question, {
+  kind: PropTypes.string,
+  min: PropTypes.number,
+  max: PropTypes.number,
+  step: PropTypes.number
+}));
 
-export const PTextResponse = PropTypes.shape(Object.assign({}, Question, {
+// ------------------------------------------------------------
+//   Responses
+// ------------------------------------------------------------
+
+const Response = {
+  questionId: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.number])
+};
+export const PResponse = PropTypes.shape(Response);
+
+export const PTextResponse = PropTypes.shape(Object.assign({}, Response, {
   value: PropTypes.string
 }));
 
-export const PYesNoResponse = PropTypes.shape(Object.assign({}, Question, {
+export const PYesNoResponse = PropTypes.shape(Object.assign({}, Response, {
   value: PropTypes.bool
 }));
+
+export const PNumberResponse = PropTypes.shape(Object.assign({}, Response, {
+  value: PropTypes.number
+}));
+
+// ------------------------------------------------------------
+//   Templates
+// ------------------------------------------------------------
 
 export const PTemplate = PropTypes.shape({
   questions: PropTypes.arrayOf(PQuestion)
 });
+
+// ------------------------------------------------------------
+//   Questionnaires
+// ------------------------------------------------------------
 
 const Questionnaire = {
   id: PropTypes.string,
@@ -41,6 +69,10 @@ const Questionnaire = {
   responses: PropTypes.arrayOf(PResponse)
 };
 export const PQuestionnaire = PropTypes.shape(Questionnaire);
+
+// ------------------------------------------------------------
+//   Groups
+// ------------------------------------------------------------
 
 const Group = {
   id: PropTypes.string,
@@ -57,6 +89,10 @@ export const GroupReselect = Object.assign({}, Group, {
   questionnaires: PropTypes.arrayOf(PQuestionnaire)
 });
 export const PGroupReselect = PropTypes.shape(GroupReselect);
+
+// ------------------------------------------------------------
+//   State
+// ------------------------------------------------------------
 
 export const PState = {
   selectedGroup: PropTypes.string,

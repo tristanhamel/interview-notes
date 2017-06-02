@@ -1,20 +1,50 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { PQuestionnaire, PGroup } from '../../proptypes';
+import { EditText } from '../EditText';
+import { Question } from '../questions/Question';
 
-export const FillQuestionnaireView = (props) => {
-  return (
-    <div className="fill-questionnaire">
-      <h3>{props.group.title}</h3>
-      <h1>{props.questionnaire.title}</h1>
-    </div>
-  );
-};
+export class FillQuestionnaireView extends React.Component{
+  constructor(props) {
+    super(props);
+  }
 
-FillQuestionnaireView.propTypes = {
+  editQuestionnaireProp(prop) {
+    this.props.onEditQuestionnaireProp(prop, this.props.questionnaire.id);
+  }
 
-};
+  render() {
+    return (
+      <div className="fill-questionnaire">
+        <h3>{this.props.group.title}</h3>
+        <EditText onSave={title => this.editQuestionnaireProp({ title })}
+                  text={this.props.questionnaire.title}>
+          <h1>{this.props.questionnaire.title}</h1>
+        </EditText>
+
+        <EditText onSave={description => this.editQuestionnaireProp({ description })}
+                  text={this.props.questionnaire.description}
+                  long={true}>
+          <span>{this.props.questionnaire.description}</span>
+        </EditText>
+
+        <div className="questions">
+          {this.props.group.template.questions.map((q, i) => {
+            return <Question question={q} key={i}
+                             response={this.props.questionnaire.responses.find(r => r.questionId === q.id)}
+                             onChange={response => this.props.onSubmitResponse(response, this.props.questionnaire.id)}/>;
+          })}
+        </div>
+      </div>
+
+    );
+  }
+}
+
 FillQuestionnaireView.propTypes = {
   questionnaire: PQuestionnaire,
-  group: PGroup
+  group: PGroup,
+  onEditQuestionnaireProp: PropTypes.func,
+  onSubmitResponse: PropTypes.func
 };
