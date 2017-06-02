@@ -28,4 +28,3 @@ export const GroupsList = (props) => {
 GroupsList.propTypes = {
   groups: PropTypes.arrayOf(PGroup)
 };
-

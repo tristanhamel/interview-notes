@@ -37,7 +37,6 @@ export function editQuestionnaire(props, questionnaireId) {
 }
 
 export function submitResponse(response, questionnaireId) {
-  console.log(response, questionnaireId);
   return (dispatch, getState) => {
     const questionnaire = getState().questionnaires.find(q => q.id === questionnaireId);
     if(!questionnaire) {

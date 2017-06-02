@@ -2,6 +2,8 @@ import React from 'react';
 
 import { PGroupReselect } from '../../proptypes';
 
+import { QuestionnaireTableCell } from './QuestionnaireTableCell';
+
 export const QuestionnairesTable = (props) => {
   return (
     <div>
@@ -29,13 +31,13 @@ export const QuestionnairesTable = (props) => {
 
                 {props.group.questionnaires.map((q, j) => {
                   const response = q.responses.find(r => r.questionId === question.id);
-                  const value = response ? response.value : null;
 
-                  if(question.type === 'checkBox' && value !== null) {
-                    return value ? <td key={j}> {question.options[0]}</td> : <td key={j}>{question.options[1]}</td>;
-                  } else {
-                    return <td key={j}>{value}</td>;
-                  }
+                  return (
+                    <td key={j}>
+                      <QuestionnaireTableCell question={question}
+                                              response={response}/>
+                    </td>
+                  );
                 })}
               </tr>
             );
