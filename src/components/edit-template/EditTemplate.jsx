@@ -1,11 +1,14 @@
 import { connect } from 'react-redux';
 
-import { editGroupProp, addQuestion, deleteQuestion, editQuestion } from '../../actions/groups.actions';
+import { editGroupProp } from '../../actions/groups.actions';
+import { addQuestion, deleteQuestion, editQuestion } from '../../actions/questions.actions';
+
+import { groups } from '../../selectors/groups.selector';
 
 import { EditTemplateView } from './EditTemplateView';
 
 const mapStateToProps = (state, ownProps) => ({
-  group: state.groups.find(q => q.id === ownProps.match.params.groupId),
+  group: groups(state).find(q => q.id === ownProps.match.params.groupId),
   templateQuestions: state.templateQuestions
 });
 

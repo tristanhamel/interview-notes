@@ -10,7 +10,7 @@ export class YesNoQuestion extends React.Component {
 
   render() {
     return (
-      <div className="number-question">
+      <div className="yes-no-question">
         <label htmlFor={`yes-no-question-${this.props.question.id}`}>
           {this.props.question.label}
         </label>

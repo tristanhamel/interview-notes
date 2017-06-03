@@ -3,10 +3,7 @@ import PropTypes from 'prop-types';
 
 import { PQuestion, PResponse } from '../../proptypes';
 
-import { YesNoQuestion } from '../questions/YesNoQuestion';
-import { CurrencyQuestion } from '../questions/CurrencyQuestion';
-import { NumberQuestion } from '../questions/NumberQuestion';
-import { TextQuestion } from '../questions/TextQuestion';
+import { Question } from '../questions/Question';
 import { QuestionEditor } from './QuestionEditor';
 
 export class EditQuestion extends React.Component {
@@ -17,25 +14,16 @@ export class EditQuestion extends React.Component {
       value: undefined,
       isEditing: false
     };
-
-    this.questionComponents = {
-      yesNo: (<YesNoQuestion onChange={value => this.answer(value)}
-                             question={this.props.question}
-                             response={{value: this.state.value}} />),
-      text: (<TextQuestion onChange={value => this.answer(value)}
-                           question={this.props.question}
-                           response={{value: this.state.value}} />),
-      number: (<NumberQuestion onChange={value => this.answer(value)}
-                               question={this.props.question}
-                               response={{value: this.state.value}} />),
-      currency: (<CurrencyQuestion onChange={value => this.answer(value)}
-                                   question={this.props.question}
-                                   response={{value: this.state.value}} />)
-    };
   }
 
   answer(value) {
+    console.log(value);
     this.setState({ value });
+  }
+
+  save(question) {
+    this.setState({isEditing: false});
+    this.props.onChange(question);
   }
 
   render() {
@@ -53,10 +41,12 @@ export class EditQuestion extends React.Component {
 
       <div>
         {this.state.isEditing ?
-          <QuestionEditor onSave={question => this.props.onChange(question)}
-                          onCancel={this.setState({isEditing: false})}
+          <QuestionEditor onSave={question => this.save(question)}
+                          onCancel={() => this.setState({isEditing: false})}
                           question={this.props.question} /> :
-          this.questionComponents[this.props.question.questionType]
+          <Question onChange={answer => this.answer(answer.value)}
+                    question={this.props.question}
+                    response={{value: this.state.value}} />
         }
       </div>
     </div>;

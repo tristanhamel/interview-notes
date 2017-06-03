@@ -16,7 +16,7 @@ export class TextQuestion extends React.Component {
         </label>
         <input id={`text-question-${this.props.question.id}`}
                type="text"
-               value={this.props.response}
+               value={this.props.response.value}
                placeholder={this.props.question.placeholder}
                onChange={e => this.props.onChange(e.target.value)}/>
       </div>

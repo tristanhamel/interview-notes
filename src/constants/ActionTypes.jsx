@@ -13,7 +13,6 @@ export const GROUPS_ADD_QUESTIONNAIRE = 'GROUPS_ADD_QUESTIONNAIRE';
 export const GROUPS_REMOVE_QUESTIONNAIRE = 'GROUPS_REMOVE_QUESTIONNAIRE';
 export const GROUPS_ADD_QUESTION = 'GROUPS_ADD_QUESTION';
 export const GROUPS_DELETE_QUESTION = 'GROUPS_DELETE_QUESTION';
-export const GROUPS_EDIT_QUESTION = 'GROUPS_EDIT_QUESTION';
 
 // ------------------------------------------------------------
 //   Selected group
@@ -21,6 +20,14 @@ export const GROUPS_EDIT_QUESTION = 'GROUPS_EDIT_QUESTION';
 
 export const SELECTED_GROUP_SET = 'SELECTED_GROUP_SET';
 export const SELECTED_GROUP_RESET = 'SELECTED_GROUP_RESET';
+
+// ------------------------------------------------------------
+//   Questions
+// ------------------------------------------------------------
+
+export const QUESTIONS_ADD = 'QUESTION_ADD';
+export const QUESTIONS_DELETE = 'QUESTION_DELETE';
+export const QUESTIONS_EDIT = 'QUESTION_EDIT';
 
 // ------------------------------------------------------------
 //   Questionnaires

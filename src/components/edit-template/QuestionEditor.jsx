@@ -8,12 +8,12 @@ export class QuestionEditor extends React.Component {
     super(props);
 
     this.state = {
-      question: {}
+      question: undefined
     };
   }
 
   componentWillMount() {
-
+    this.setState({question: Object.assign({}, this.props.question)});
   }
 
   save() {

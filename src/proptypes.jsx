@@ -80,13 +80,14 @@ const Group = {
   last_modified: PropTypes.number,
   title: PropTypes.string,
   description: PropTypes.string,
+  questionsIds: PropTypes.arrayOf(PropTypes.string),
   questionnairesIds: PropTypes.arrayOf(PropTypes.string),
-  template: PQuestionnaireTemplate
 };
 export const PGroup = PropTypes.shape(Group);
 
 export const GroupReselect = Object.assign({}, Group, {
-  questionnaires: PropTypes.arrayOf(PQuestionnaire)
+  questionnaires: PropTypes.arrayOf(PQuestionnaire),
+  questions: PropTypes.arrayOf(PQuestion)
 });
 export const PGroupReselect = PropTypes.shape(GroupReselect);
 

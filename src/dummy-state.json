@@ -9,32 +9,7 @@
       "title": "Group1",
       "description": "in August",
       "questionnairesIds": ["1", "2"],
-      "template": {
-        "questions": [
-          {
-            "id": "1",
-            "questionType": "yesNo",
-            "label": "FlexTime",
-            "score": 0,
-            "options": ["Yes", "No"]
-          },
-          {
-            "id": "2",
-            "questionType": "yesNo",
-            "label": "Health coverage",
-            "score": 0,
-            "options": ["Yes", "No"]
-          },
-          {
-            "id": "3",
-            "questionType": "currency",
-            "label": "Salary ($/y)",
-            "kind": "$",
-            "score": 0,
-            "placeholder": "salary"
-          }
-        ]
-      }
+      "questionsIds": ["1","2","3"]
     },
     {
       "id": "2",
@@ -43,25 +18,7 @@
       "title": "Group2",
       "description": "in September",
       "questionnairesIds": ["3"],
-      "template": {
-        "questions": [
-          {
-            "id": "1",
-            "questionType": "yesNo",
-            "label": "FlexTime",
-            "score": 0,
-            "options": ["Yes", "No"]
-          },
-          {
-            "id": "3",
-            "questionType": "text",
-            "label": "Salary ($/y)",
-            "kind": "$",
-            "score": 0,
-            "placeholder": "salary"
-          }
-        ]
-      }
+      "questionsIds": ["4", "5"]
     }
   ],
   "questionnaires": [
@@ -113,6 +70,45 @@
       "title": "company3",
       "description": "Yet another great company",
       "responses": []
+    }
+  ],
+  "questions": [
+    {
+      "id": "1",
+      "questionType": "yesNo",
+      "label": "FlexTime",
+      "score": 0,
+      "options": ["Yes", "No"]
+    },
+    {
+      "id": "2",
+      "questionType": "yesNo",
+      "label": "Health coverage",
+      "score": 0,
+      "options": ["Yes", "No"]
+    },
+    {
+      "id": "3",
+      "questionType": "currency",
+      "label": "Salary ($/y)",
+      "kind": "$",
+      "score": 0,
+      "placeholder": "salary"
+    },
+    {
+      "id": "4",
+      "questionType": "yesNo",
+      "label": "FlexTime",
+      "score": 0,
+      "options": ["Yes", "No"]
+    },
+    {
+      "id": "5",
+      "questionType": "text",
+      "label": "Salary ($/y)",
+      "kind": "$",
+      "score": 0,
+      "placeholder": "salary"
     }
   ]
 }

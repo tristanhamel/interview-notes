@@ -30,15 +30,15 @@ export class EditTemplateView extends React.Component {
         </EditText>
 
         <div>
-          {this.props.group.template.questions.map((q, i) => {
+          {this.props.group.questions.map((q, i) => {
             return <EditQuestion question={q} key={i}
-                                 onChange={response => this.props.onEditQuestion(response, this.props.group.id)}
-                                 onDelete={questionId => this.props.onDeleteQuestion(questionId)}/>;
+                                 onChange={response => this.props.onEditQuestion(response)}
+                                 onDelete={questionId => this.props.onDeleteQuestion(questionId, this.props.group.id)}/>;
           })}
         </div>
         <div>
           <AddQuestion templateQuestions={this.props.templateQuestions}
-                       onAddQuestion={question => this.props.onAddQuestion(question)}/>
+                       onAdd={question => this.props.onAddQuestion(question, this.props.group.id)}/>
         </div>
       </div>
 

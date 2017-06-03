@@ -31,7 +31,7 @@ export const questionnaires = (state = initialState, {type, payload}) => {
     }
 
     case actions.QUESTIONNAIRES_DELETE_RESPONSE: {
-      const questionnaires = state.filter(q => q.id === payload.questionnaireIds);
+      const questionnaires = state.filter(q => payload.questionnaireIds.indexOf(q.id) !== -1);
       if(!questionnaires.length) {
         return state;
       }

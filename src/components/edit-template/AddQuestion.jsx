@@ -18,7 +18,7 @@ export class AddQuestion extends React.Component {
   }
 
   add(question) {
-    this.onAdd(question);
+    this.props.onAdd(question);
     this.reset();
   }
 
@@ -65,9 +65,10 @@ export class AddQuestion extends React.Component {
                             onSave={question => this.add(question)}
                             onCancel={() => this.reset()}
                             submitLabel="Add" />
-
           }
-          <button type="cancel" onClick={()=> this.reset()}>Cancel</button>
+          {!this.state.newQuestion.questionType &&
+            <button type="cancel" onClick={()=> this.reset()}>Cancel</button>
+          }
         </div>
       }
     </div>;

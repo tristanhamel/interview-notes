@@ -35,20 +35,7 @@ export const groups = (state = initialState, {type, payload}) => {
         return state;
       }
 
-      updatedGroup.template.questions = [...updatedGroup.template.questions, payload.question];
-
-      return state
-        .map(g => g.id !== payload.groupId ? g : updatedGroup);
-    }
-
-    case actions.GROUPS_EDIT_QUESTION:{
-      const updatedGroup = state.find(g => g.id === payload.groupId);
-      if(!updatedGroup) {
-        return state;
-      }
-
-      updatedGroup.template.questions = updatedGroup.template.questions
-        .map(q => q.id === payload.question ? q : payload.question);
+      updatedGroup.questionsIds = [...updatedGroup.questionsIds, payload.questionId];
 
       return state
         .map(g => g.id !== payload.groupId ? g : updatedGroup);
@@ -60,8 +47,8 @@ export const groups = (state = initialState, {type, payload}) => {
         return state;
       }
 
-      updatedGroup.template.questions = updatedGroup.template.questions
-        .filter(q => q.id !== payload.questionId);
+      updatedGroup.questionsIds = updatedGroup.questionsIds
+        .filter(q => q !== payload.questionId);
 
       return state
         .map(g => g.id !== payload.groupId ? g : updatedGroup);
