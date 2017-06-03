@@ -30,7 +30,7 @@ export class FillQuestionnaireView extends React.Component{
         </EditText>
 
         <div className="questions">
-          {this.props.group.template.questions.map((q, i) => {
+          {this.props.group.questions.map((q, i) => {
             return <Question question={q} key={i}
                              response={this.props.questionnaire.responses.find(r => r.questionId === q.id)}
                              onChange={response => this.props.onSubmitResponse(response, this.props.questionnaire.id)}/>;

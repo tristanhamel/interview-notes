@@ -22,7 +22,7 @@ export const QuestionnairesTable = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.group.template.questions.map((question, i) => {
+          {props.group.questions.map((question, i) => {
             return (
               <tr key={i}>
                 <td>
@@ -34,8 +34,10 @@ export const QuestionnairesTable = (props) => {
 
                   return (
                     <td key={j}>
-                      <QuestionnaireTableCell question={question}
-                                              response={response}/>
+                      {response && response.value &&
+                        <QuestionnaireTableCell question={question}
+                                                response={response}/>
+                      }
                     </td>
                   );
                 })}

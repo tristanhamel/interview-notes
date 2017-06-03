@@ -69,7 +69,16 @@
       "last_modified": 1493733065000,
       "title": "company3",
       "description": "Yet another great company",
-      "responses": []
+      "responses": [
+        {
+        "questionId": "1",
+        "value": null
+        },
+        {
+        "questionId": "2",
+        "value": null
+        }
+      ]
     }
   ],
   "questions": [
