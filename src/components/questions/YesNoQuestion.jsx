@@ -11,10 +11,10 @@ export class YesNoQuestion extends React.Component {
   render() {
     return (
       <div className="number-question">
-        <label htmlFor={`number-question-${this.props.question.id}`}>
+        <label htmlFor={`yes-no-question-${this.props.question.id}`}>
           {this.props.question.label}
         </label>
-        <input id={`number-question-${this.props.question.id}`}
+        <input id={`yes-no-question-${this.props.question.id}`}
                type="checkbox"
                placeholder={this.props.question.placeholder}
                onChange={e => this.props.onChange(!!e.target.checked)}

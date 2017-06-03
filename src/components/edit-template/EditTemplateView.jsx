@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { PQuestion, PGroup } from '../../proptypes';
 import { EditText } from '../EditText';
 import { AddQuestion } from './AddQuestion';
-import { EditQuestion } from '../questions/EditQuestion';
+import { EditQuestion } from './EditQuestion';
 
 export class EditTemplateView extends React.Component {
   constructor(props) {
@@ -29,13 +29,13 @@ export class EditTemplateView extends React.Component {
           <span>{this.props.group.description}</span>
         </EditText>
 
-        {/*<div>*/}
-          {/*{this.props.group.template.questions.map((q, i) => {*/}
-            {/*return <EditQuestion question={q} key={i}*/}
-                                 {/*onChange={response => this.props.onEditQuestion(response, this.props.group.id)}*/}
-                                 {/*onDelete={questionId => this.props.onDeleteQuestion(questionId)}/>;*/}
-          {/*})}*/}
-        {/*</div>*/}
+        <div>
+          {this.props.group.template.questions.map((q, i) => {
+            return <EditQuestion question={q} key={i}
+                                 onChange={response => this.props.onEditQuestion(response, this.props.group.id)}
+                                 onDelete={questionId => this.props.onDeleteQuestion(questionId)}/>;
+          })}
+        </div>
         <div>
           <AddQuestion templateQuestions={this.props.templateQuestions}
                        onAddQuestion={question => this.props.onAddQuestion(question)}/>
