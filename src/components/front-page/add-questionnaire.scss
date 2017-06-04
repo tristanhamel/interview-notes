@@ -1,0 +1,26 @@
+@import "../../styles/bootstrap";
+
+.add-questionnaire {
+  display: inline-block;
+  height: 20px;
+
+  .add-questionnaire-form {
+    display: flex;
+  }
+
+  .add-questionnaire-button-container {
+    display: flex;
+  }
+
+  .add-questionnaire-button {
+    background: none;
+    border: none;
+    color: $brand-primary;
+    padding-bottom: 0;
+    text-decoration: underline;
+  }
+
+  .edit-text-input {
+    border-color: $input-border;
+  }
+}

@@ -4,7 +4,7 @@ import { batchActions } from 'redux-batched-actions';
 export function addQuestionnaire(title, groupId) {
   const newQuestionnaire = {
     title,
-    id: Date.now(),
+    id: `${Date.now()}`,
     created_at: Date.now(),
     las_modified: Date.now(),
     responses: []

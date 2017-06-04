@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { QuestionnairesTable } from './QuestionnairesTable';
 import { EditText } from '../EditText';
+import { AddQuestionnaire } from './AddQuestionnaire';
 
 import './group-view.scss';
 
@@ -27,15 +28,12 @@ export class GroupView extends React.Component{
       <div className="group-view panel panel-default">
         <div className="panel-heading group-heading">
           <div>
-            <EditText onSave={title => this.editGroupProp({ title })}
+            <EditText onChange={title => this.editGroupProp({ title })}
                       text={this.props.group.title}
                       textClass="group-title-edit">
-              <div className="group-title-container">
-                <h2 className="group-title edit-text-original">{this.props.group.title}</h2>
-                <span className="glyphicon glyphicon-trash action-icon"
-                   onClick={e => this.deleteGroup(e)}></span>
-              </div>
             </EditText>
+            <span className="glyphicon glyphicon-trash action-icon"
+                  onClick={e => this.deleteGroup(e)}></span>
 
             <div className="small text-muted group-details">
               <div>Created on {new Date(this.props.group.created_at).toDateString()}</div>
@@ -53,13 +51,10 @@ export class GroupView extends React.Component{
         </div>
 
         <div className="panel-body">
-          <EditText onSave={description => this.editGroupProp({ description })}
+          <EditText onChange={description => this.editGroupProp({ description })}
                     text={this.props.group.description}
                     long={true}
                     textClass="lead">
-            <div>
-              <p className="lead edit-text-original">{this.props.group.description}</p>
-            </div>
           </EditText>
 
           <h3>Questionnaires:</h3>
@@ -76,14 +71,7 @@ export class GroupView extends React.Component{
               );
             })}
              <li className="questionnaires-list-add">
-               <EditText onSave={newTitle => this.props.onAddQuestionnaire(newTitle)}
-                         text=""
-                         placeholder="New Questionnaire"
-                         submitLabel="Add">
-                 <span>Add a new questionnaire</span>
-                 &nbsp;
-                 <span className="glyphicon glyphicon-plus"></span>
-               </EditText>
+               <AddQuestionnaire onSave={newTitle => this.props.onAddQuestionnaire(newTitle)} />
              </li>
           </ul>
 

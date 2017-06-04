@@ -18,15 +18,15 @@ export class FillQuestionnaireView extends React.Component{
     return (
       <div className="fill-questionnaire">
         <h3>{this.props.group.title}</h3>
-        <EditText onSave={title => this.editQuestionnaireProp({ title })}
-                  text={this.props.questionnaire.title}>
-          <h1>{this.props.questionnaire.title}</h1>
+        <EditText onChange={title => this.editQuestionnaireProp({ title })}
+                  text={this.props.questionnaire.title}
+                  textClass="h1">
         </EditText>
 
-        <EditText onSave={description => this.editQuestionnaireProp({ description })}
+        <EditText onChange={description => this.editQuestionnaireProp({ description })}
                   text={this.props.questionnaire.description}
-                  long={true}>
-          <span>{this.props.questionnaire.description}</span>
+                  long={true}
+                  textClass="lead">
         </EditText>
 
         <div className="questions">

@@ -18,15 +18,16 @@ export class EditTemplateView extends React.Component {
   render() {
     return (
       <div className="fill-questionnaire">
-        <EditText onSave={title => this.editGroupProp({ title })}
-                  text={this.props.group.title}>
+        <EditText onChange={title => this.editGroupProp({ title })}
+                  text={this.props.group.title}
+                  textClass="h3">
           <h3>{this.props.group.title}</h3>
         </EditText>
 
-        <EditText onSave={description => this.editQuestionnaireProp({ description })}
+        <EditText onChange={description => this.editQuestionnaireProp({ description })}
                   text={this.props.group.description}
-                  long={true}>
-          <span>{this.props.group.description}</span>
+                  long={true}
+                  textClass="lead">
         </EditText>
 
         <div>
