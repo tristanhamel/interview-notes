@@ -1,0 +1,33 @@
+@import '../../styles/bootstrap';
+
+.group-view {
+
+  .group-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .group-title, .group-title-container {
+    display: inline;
+  }
+
+  .group-details {
+    padding-top: 1rem;
+  }
+
+  .group-title-edit {
+    @extend .h2;
+    margin: 0;
+  }
+
+  .questionnaires-list {
+    li {
+      padding: 0.2rem;
+    }
+  }
+
+  .questionnaires-list-add .edit-text{
+    display: inline-block;
+  }
+}

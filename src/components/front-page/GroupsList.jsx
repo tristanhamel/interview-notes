@@ -10,14 +10,14 @@ export const GroupsList = (props) => {
       <ul>
         {props.groups.map((group, i) => (
           <div key={i}>
-            <h3 onClick={() => props.setSelectedGroup(group.id)}>
+            <div onClick={() => props.setSelectedGroup(group.id)}>
               {!isSelected(group.id) && <span className="glyphicon glyphicon-folder-close"></span>}
               {isSelected(group.id) && <span className="glyphicon glyphicon-folder-open"></span>}
               &nbsp;
               {group.title}
               &nbsp;
               ({group.questionnairesIds.length})
-            </h3>
+            </div>
           </div>
         ))}
       </ul>

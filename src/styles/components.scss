@@ -1,0 +1,11 @@
+@import 'bootstrap';
+
+.action-icon {
+  cursor: pointer;
+  color: $gray-light;
+  margin-left: 0.5rem;
+
+  &:hover {
+    color: $brand-primary;
+  }
+}
