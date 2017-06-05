@@ -21,30 +21,36 @@ export const QuestionnairesTable = (props) => {
             })}
           </tr>
         </thead>
-        <tbody>
-          {props.group.questions.map((question, i) => {
-            return (
-              <tr key={i}>
-                <td>
-                  {question.label}
-                </td>
 
-                {props.group.questionnaires.map((q, j) => {
-                  const response = q.responses.find(r => r.questionId === question.id);
+        {Object.keys(props.group.questions).map((category, i) => {
+          return (
+            <tbody key={i}>
+            <tr>
+              <th>{category}</th>
+            </tr>
+            {props.group.questions[category].map((question, j) => {
+              return (
+                <tr key={j}>
+                  <td>
+                    {question.label}
+                  </td>
 
-                  return (
-                    <td key={j}>
-                      {response && response.value &&
+                  {props.group.questionnaires.map((q, k) => {
+                    const response = q.responses.find(r => r.questionId === question.id);
+
+                    return (
+                      <td key={k}>
+                        {response && typeof response.value != 'undefined' &&
                         <QuestionnaireTableCell question={question}
                                                 response={response}/>
-                      }
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
+                        }
+                      </td>
+                    );
+                  })}
+                </tr>);
+            })}
+            </tbody>);
+        })}
       </table>
     </div>
   );

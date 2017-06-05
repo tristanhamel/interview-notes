@@ -30,7 +30,7 @@ export class GroupView extends React.Component{
           <div>
             <EditText onChange={title => this.editGroupProp({ title })}
                       text={this.props.group.title}
-                      textClass="group-title-edit">
+                      textClass="group-title-edit h2">
             </EditText>
             <span className="glyphicon glyphicon-trash action-icon"
                   onClick={e => this.deleteGroup(e)}></span>

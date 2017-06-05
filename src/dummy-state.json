@@ -9,7 +9,8 @@
       "title": "Group1",
       "description": "in August",
       "questionnairesIds": ["1", "2"],
-      "questionsIds": ["1","2","3"]
+      "questionsIds": ["1","2","3"],
+      "categories": ["Benefits and compensation", "Working environment"]
     },
     {
       "id": "2",
@@ -18,7 +19,8 @@
       "title": "Group2",
       "description": "in September",
       "questionnairesIds": ["3"],
-      "questionsIds": ["4", "5"]
+      "questionsIds": ["4", "5"],
+      "categories": ["Benefits and compensation", "Working environment"]
     }
   ],
   "questionnaires": [
@@ -87,14 +89,16 @@
       "questionType": "yesNo",
       "label": "FlexTime",
       "score": 0,
-      "options": ["Yes", "No"]
+      "options": ["Yes", "No"],
+      "category": "Working environment"
     },
     {
       "id": "2",
       "questionType": "yesNo",
       "label": "Health coverage",
       "score": 0,
-      "options": ["Yes", "No"]
+      "options": ["Yes", "No"],
+      "category": "Benefits and compensation"
     },
     {
       "id": "3",
@@ -102,14 +106,16 @@
       "label": "Salary ($/y)",
       "kind": "$",
       "score": 0,
-      "placeholder": "salary"
+      "placeholder": "salary",
+      "category": "Benefits and compensation"
     },
     {
       "id": "4",
       "questionType": "yesNo",
       "label": "FlexTime",
       "score": 0,
-      "options": ["Yes", "No"]
+      "options": ["Yes", "No"],
+      "category": "Working environment"
     },
     {
       "id": "5",
@@ -117,7 +123,8 @@
       "label": "Salary ($/y)",
       "kind": "$",
       "score": 0,
-      "placeholder": "salary"
+      "placeholder": "salary",
+      "category": "Benefits and compensation"
     }
   ]
 }

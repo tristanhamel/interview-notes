@@ -7,13 +7,23 @@ const getSelectedGroup = (state) => state.selectedGroup;
 
 export const groups = createSelector(
   [getGroups, getQuestionnaires, getQuestions],
-  (g, questionnaires, questions) => {
+  (g, questionnaires, selectedQuestions) => {
+    const questions = (group) => group.questionsIds
+      .map(id => selectedQuestions.find(q => q.id === id))
+      .reduce((categorized, q) => {
+        categorized[q.category] = categorized.hasOwnProperty(q.category) ?
+          [...categorized[q.category], q] :
+          [q];
+
+        return categorized;
+      }, {});
+
     return g.map(group => Object.assign(
       {},
       group,
       {
         questionnaires: group.questionnairesIds.map(id => questionnaires.find(q => q.id === id)),
-        questions: group.questionsIds.map(id => questions.find(q => q.id === id))
+        questions: questions(group)
       }
     ));
   }

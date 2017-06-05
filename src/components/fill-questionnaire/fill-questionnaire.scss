@@ -1,0 +1,12 @@
+@import "../../styles/vars";
+
+.fill-questionnaire {
+  .fill-questionnaire-title {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .group-title, .glyphicon {
+    color: $gray-light;
+  }
+}

@@ -41,7 +41,7 @@ export const groups = (state = initialState, {type, payload}) => {
         .map(g => g.id !== payload.groupId ? g : updatedGroup);
     }
 
-    case actions.GROUPS_DELETE_QUESTION:{
+    case actions.GROUPS_DELETE_QUESTION: {
       const updatedGroup = state.find(g => g.id === payload.groupId);
       if(!updatedGroup) {
         return state;
@@ -49,6 +49,44 @@ export const groups = (state = initialState, {type, payload}) => {
 
       updatedGroup.questionsIds = updatedGroup.questionsIds
         .filter(q => q !== payload.questionId);
+
+      return state
+        .map(g => g.id !== payload.groupId ? g : updatedGroup);
+    }
+
+    case actions.GROUPS_DELETE_QUESTIONS: {
+      const updatedGroup = state.find(g => g.id === payload.groupId);
+      if(!updatedGroup) {
+        return state;
+      }
+
+      updatedGroup.questionsIds = updatedGroup.questionsIds
+        .filter(q => payload.questionIds.indexOf(q) === -1);
+
+      return state
+        .map(g => g.id !== payload.groupId ? g : updatedGroup);
+    }
+
+    case actions.GROUPS_ADD_CATEGORY: {
+      const updatedGroup = state.find(g => g.id === payload.groupId);
+      if(!updatedGroup) {
+        return state;
+      }
+
+      updatedGroup.categories = [...updatedGroup.categories, payload.category];
+
+      return state
+        .map(g => g.id !== payload.groupId ? g : updatedGroup);
+    }
+
+    case actions.GROUPS_DELETE_CATEGORY: {
+      const updatedGroup = state.find(g => g.id === payload.groupId);
+      if(!updatedGroup) {
+        return state;
+      }
+
+      updatedGroup.categories = updatedGroup.categories
+        .filter(q => q !== payload.category);
 
       return state
         .map(g => g.id !== payload.groupId ? g : updatedGroup);

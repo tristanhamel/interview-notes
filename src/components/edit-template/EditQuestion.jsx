@@ -16,11 +16,6 @@ export class EditQuestion extends React.Component {
     };
   }
 
-  answer(value) {
-    console.log(value);
-    this.setState({ value });
-  }
-
   save(question) {
     this.setState({isEditing: false});
     this.props.onChange(question);
@@ -44,7 +39,7 @@ export class EditQuestion extends React.Component {
           <QuestionEditor onSave={question => this.save(question)}
                           onCancel={() => this.setState({isEditing: false})}
                           question={this.props.question} /> :
-          <Question onChange={answer => this.answer(answer.value)}
+          <Question onChange={answer => this.setState({ value: answer.value })}
                     question={this.props.question}
                     response={{value: this.state.value}} />
         }

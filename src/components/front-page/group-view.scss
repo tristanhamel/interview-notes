@@ -1,5 +1,3 @@
-@import '../../styles/bootstrap';
-
 .group-view {
 
   .group-heading {
@@ -17,7 +15,6 @@
   }
 
   .group-title-edit {
-    @extend .h2;
     margin: 0;
   }
 

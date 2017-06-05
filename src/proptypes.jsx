@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { questionCategories } from './constants/questionCategories';
 
 // ------------------------------------------------------------
 //   Questions
@@ -82,12 +83,15 @@ const Group = {
   description: PropTypes.string,
   questionsIds: PropTypes.arrayOf(PropTypes.string),
   questionnairesIds: PropTypes.arrayOf(PropTypes.string),
+  categories: PropTypes.arrayOf(PropTypes.string)
 };
 export const PGroup = PropTypes.shape(Group);
 
 export const GroupReselect = Object.assign({}, Group, {
   questionnaires: PropTypes.arrayOf(PQuestionnaire),
-  questions: PropTypes.arrayOf(PQuestion)
+  questions: PropTypes.shape(questionCategories.reduce((obj, cat) =>
+    Object.assign(obj, {[cat]: PropTypes.arrayOf(PQuestion)})
+  , {}))
 });
 export const PGroupReselect = PropTypes.shape(GroupReselect);
 

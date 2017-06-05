@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { editGroupProp } from '../../actions/groups.actions';
+import { editGroupProp, addCategory, deleteCategory } from '../../actions/groups.actions';
 import { addQuestion, deleteQuestion, editQuestion } from '../../actions/questions.actions';
 
 import { groups } from '../../selectors/groups.selector';
@@ -14,6 +14,8 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   onAddQuestion: (question, groupId) => dispatch(addQuestion(question, groupId)),
+  onAddCategory: (category, groupId) => dispatch(addCategory(category, groupId)),
+  onDeleteCategory: (category, groupId) => dispatch(deleteCategory(category, groupId)),
   onDeleteQuestion: (questionId, groupId) => dispatch(deleteQuestion(questionId, groupId)),
   onEditQuestion: (question, groupId) => dispatch(editQuestion(question, groupId)),
   onEditGroupProps: (prop, id) => dispatch(editGroupProp(prop, id))

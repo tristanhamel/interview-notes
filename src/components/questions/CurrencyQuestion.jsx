@@ -16,7 +16,7 @@ export class CurrencyQuestion extends React.Component {
         </label>
         <input id={`numbe-question-${this.props.question.id}`}
                type="number"
-               value={this.props.response.value}
+               value={this.props.response ? this.props.response.value : 0}
                min={this.props.question.min}
                max={this.props.question.max}
                step={this.props.question.step || 1000}
