@@ -45,12 +45,12 @@ export class AddQuestionnaire extends React.Component {
                       placeholder="New Questionnaire">
             </EditText>
             <div className="add-questionnaire-button-container">
-              <button className="add-questionnaire-button small"
+              <button className="text-button small"
                       type="submit"
                       onClick={() => this.save()}>
                 Add
               </button>
-              <button className="add-questionnaire-button small"
+              <button className="text-button small"
                       type="cancel"
                       onClick={() => this.reset()}>
                 Cancel

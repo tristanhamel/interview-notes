@@ -6,6 +6,8 @@ import { PQuestion, PResponse } from '../../proptypes';
 import { Question } from '../questions/Question';
 import { QuestionEditor } from './QuestionEditor';
 
+import './edit-question.scss';
+
 export class EditQuestion extends React.Component {
   constructor(props) {
     super(props);
@@ -22,18 +24,7 @@ export class EditQuestion extends React.Component {
   }
 
   render() {
-    return <div>
-      <div>
-        <span onClick={() => this.setState({isEditing: true})}>
-          <span className="glyphicon glyphicon-edit"></span>
-          <span>Edit</span>
-        </span>
-        <span  onClick={() => this.props.onDelete(this.props.question.id)}>
-          <span className="glyphicon glyphicon-trash"></span>
-          <span>delete</span>
-        </span>
-      </div>
-
+    return <div className="edit-question">
       <div>
         {this.state.isEditing ?
           <QuestionEditor onSave={question => this.save(question)}
@@ -44,6 +35,16 @@ export class EditQuestion extends React.Component {
                     response={{value: this.state.value}} />
         }
       </div>
+      {!this.state.isEditing &&
+      <div className="edit-actions">
+        <span onClick={() => this.setState({isEditing: true})}
+              className="glyphicon glyphicon-edit action-icon">
+        </span>
+        <span onClick={() => this.props.onDelete(this.props.question.id)}
+              className="glyphicon glyphicon-trash action-icon">
+        </span>
+      </div>
+      }
     </div>;
   }
 }

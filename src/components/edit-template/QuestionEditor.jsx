@@ -25,46 +25,71 @@ export class QuestionEditor extends React.Component {
   }
 
   render() {
-    return <div>
-      <div>
-        <span>Answer type: </span>
-        <span>{this.props.question.questionType}</span>
-      </div>
+    return <div className="question-editor">
 
-      <form onSubmit={() => this.save()}>
-        <label htmlFor="question-editor-label">Question:</label>
-        <input type="text"
-               id="question-editor-label"
-               value={this.state.question.label}
-               onChange={e => this.updateQuestion({label: e.target.value})}
-               placeholder="Add a question label"/>
+      <form className="form">
+        <div className="form-item">
+          <span>Answer type: </span>
+          <span>{this.props.question.questionType}</span>
+        </div>
+
+        <div className="input-group form-item">
+          <label htmlFor="question-editor-label"
+                 className="input-group-addon">Question:</label>
+          <input type="text"
+                 className="form-control"
+                 id="question-editor-label"
+                 value={this.state.question.label}
+                 onChange={e => this.updateQuestion({label: e.target.value})}
+                 placeholder="Add a question label"/>
+        </div>
 
         {this.state.question.questionType === 'currency' &&
-        <input type="text"
-               value={this.state.question.kind}
-               onChange={e => this.updateQuestion({kind: e.target.value})}
-               placeholder="Add a currency"/>
-
+        <div className="input-group form-item">
+          <label htmlFor="question-editor-currency-symbol"
+                 className="input-group-addon">Currency symbol:</label>
+          <input type="text"
+                 className="form-control"
+                 id="question-editor-currency-symbol"
+                 value={this.state.question.kind}
+                 onChange={e => this.updateQuestion({kind: e.target.value})}
+                 placeholder="Add a currency"/>
+        </div>
         }
         {this.state.question.questionType === 'yesNo' &&
         <fieldset>
-          <label htmlFor="question-editor-yesNo-options1">Selected response label:</label>
-          <input type="text"
-                 id="question-editor-yesNo-options1"
-                 value={this.state.question.options[0]}
-                 onChange={e => this.updateQuestion({options: [e.target.value, this.state.question.options[1]]})}
-                 placeholder="Yes"/>
-          <label htmlFor="question-editor-yesNo-options2">Unselected response label:</label>
-          <input type="text"
-                 id="question-editor-yesNo-options2"
-                 value={this.state.question.options[1]}
-                 onChange={e => this.updateQuestion({options: [this.state.question.options[0], e.target.value]})}
-                 placeholder="No"/>
+          <div className="input-group form-item">
+            <label htmlFor="question-editor-yesNo-options1"
+                   className="input-group-addon"><em>True</em> label:</label>
+            <input type="text"
+                   className="form-control"
+                   id="question-editor-yesNo-options1"
+                   value={this.state.question.options[0]}
+                   onChange={e => this.updateQuestion({options: [e.target.value, this.state.question.options[1]]})}
+                   placeholder="Yes"/>
+          </div>
+          <div className="input-group form-item">
+            <label htmlFor="question-editor-yesNo-options2"
+                   className="input-group-addon"><em>False</em> label:</label>
+            <input type="text"
+                   className="form-control"
+                   id="question-editor-yesNo-options2"
+                   value={this.state.question.options[1]}
+                   onChange={e => this.updateQuestion({options: [this.state.question.options[0], e.target.value]})}
+                   placeholder="No"/>
+          </div>
         </fieldset>
         }
-        <button type="submit">{this.props.submitLabel || 'OK'}</button>
+
+        <div className="form-item" >
+          <button type="submit"
+                  className="btn btn-primary btn-sm"
+                  onClick={() => this.save()}>{this.props.submitLabel || 'OK'}</button>
+          <button type="cancel"
+                  className="btn btn-default btn-sm"
+                  onClick={()=> this.props.onCancel()}>Cancel</button>
+        </div>
       </form>
-      <button type="cancel" onClick={()=> this.props.onCancel()}>Cancel</button>
     </div>;
   }
 }

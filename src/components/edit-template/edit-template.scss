@@ -1,0 +1,12 @@
+@import "../../styles/vars";
+
+.category-title {
+  margin: -15px -15px 15px;
+  padding: 15px;
+  background: $brand-primary;
+  color: $list-group-bg;
+
+  h4 {
+    margin: 0;
+  }
+}

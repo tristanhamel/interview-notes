@@ -67,7 +67,11 @@ export class AddQuestion extends React.Component {
                             submitLabel="Add" />
           }
           {!this.state.newQuestion.questionType &&
-            <button type="cancel" onClick={()=> this.reset()}>Cancel</button>
+            <div>
+              <button className="btn btn-sm btn-default"
+                      type="cancel"
+                      onClick={()=> this.reset()}>Cancel</button>
+            </div>
           }
         </div>
       }

@@ -7,6 +7,8 @@ import { groups } from '../../selectors/groups.selector';
 
 import { EditTemplateView } from './EditTemplateView';
 
+import './edit-template.scss';
+
 const mapStateToProps = (state, ownProps) => ({
   group: groups(state).find(q => q.id === ownProps.match.params.groupId),
   templateQuestions: state.templateQuestions
