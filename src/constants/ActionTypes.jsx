@@ -18,13 +18,6 @@ export const GROUPS_ADD_CATEGORY = 'GROUPS_ADD_CATEGORY';
 export const GROUPS_DELETE_CATEGORY = 'GROUPS_DELETE_CATEGORY';
 
 // ------------------------------------------------------------
-//   Selected group
-// ------------------------------------------------------------
-
-export const SELECTED_GROUP_SET = 'SELECTED_GROUP_SET';
-export const SELECTED_GROUP_RESET = 'SELECTED_GROUP_RESET';
-
-// ------------------------------------------------------------
 //   Questions
 // ------------------------------------------------------------
 

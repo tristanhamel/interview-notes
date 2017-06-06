@@ -1,16 +1,5 @@
 import * as actions from '../constants/ActionTypes';
 import { batchActions } from 'redux-batched-actions';
-export function setSelectedGroup(id) {
-  return dispatch => {
-    dispatch({type: actions.SELECTED_GROUP_SET, payload: id});
-  };
-}
-
-export function resetSelectedGroup() {
-  return dispatch => {
-    dispatch({type: actions.SELECTED_GROUP_RESET});
-  };
-}
 
 export function editGroupProp(prop, groupId) {
   return (dispatch, getState) => {
@@ -21,16 +10,8 @@ export function editGroupProp(prop, groupId) {
 }
 
 export function deleteGroup(groupId) {
-  return (dispatch, getState) => {
-    const batch = [
-     {type: actions.GROUPS_REMOVE, payload: groupId}
-    ];
-
-    if(getState().selectedGroup === groupId) {
-      batch.push({type: actions.SELECTED_GROUP_RESET});
-    }
-
-    dispatch(batchActions(batch));
+  return (dispatch) => {
+    dispatch({type: actions.GROUPS_REMOVE, payload: groupId});
   };
 }
 

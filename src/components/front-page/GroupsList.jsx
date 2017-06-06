@@ -1,27 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { PGroup } from '../../proptypes';
+import { Link } from 'react-router-dom';
 
 export const GroupsList = (props) => {
-  const isSelected = (id) => props.selectedGroup && props.selectedGroup.id === id;
+  // const isSelected = (id) => props.selectedGroup && props.selectedGroup.id === id;
 
   return (
-    <div>
-      <ul>
-        {props.groups.map((group, i) => (
-          <div key={i}>
-            <div onClick={() => props.setSelectedGroup(group.id)}>
-              {!isSelected(group.id) && <span className="glyphicon glyphicon-folder-close"></span>}
-              {isSelected(group.id) && <span className="glyphicon glyphicon-folder-open"></span>}
-              &nbsp;
-              {group.title}
-              &nbsp;
-              ({group.questionnairesIds.length})
-            </div>
-          </div>
-        ))}
-      </ul>
-    </div>
+    <ul className="list-group">
+      {props.groups.map((group, i) => (
+        <li key={i} className="list-group-item">
+          <Link to={`/${group.id}`}>
+            {/*{!isSelected(group.id) && <span className="glyphicon glyphicon-folder-close"></span>}*/}
+            {/*{isSelected(group.id) && <span className="glyphicon glyphicon-folder-open"></span>}*/}
+            &nbsp;
+            {group.title}
+            &nbsp;
+            ({group.questionnairesIds.length})
+          </Link>
+        </li>
+      ))}
+      <li className="list-group-item">
+        Add group &nbsp;<span className="glyphicon glyphicon-plus"></span>
+        {/*<AddGroup />*/}
+      </li>
+    </ul>
   );
 };
 

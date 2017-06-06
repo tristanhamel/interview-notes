@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Route } from 'react-router-dom';
 
 import { PGroupReselect } from '../../proptypes';
 
 import { GroupsList } from './GroupsList';
-import { GroupView } from './GroupView';
+import { Group } from '../group-view/Group';
 
 import './home-view.scss';
 
@@ -14,34 +15,29 @@ export const HomeView = props => {
       <h2 className="text-center">
         My app is here
       </h2>
-      <div className="row">
-        <div className="col-sm-3 col-md-2 container">
-          <div className="panel panel-default">
-            <GroupsList groups={props.groups}
-                        setSelectedGroup={props.setSelectedGroup}
-                        selectedGroup={props.selectedGroup}>
-            </GroupsList>
-          </div>
+      <div className="col-sm-3 col-md-2 container">
+        <div className="panel panel-default">
+          <GroupsList groups={props.groups}
+                      selectedGroup="">
+          </GroupsList>
         </div>
-        <div className="col-sm-9 col-md-10 container">
-          {props.selectedGroup &&
-            <GroupView group={props.selectedGroup}
-                       onAddQuestionnaire={props.onAddQuestionnaire}
-                       onDeleteQuestionnaire={props.onDeleteQuestionnaire}
-                       onEditGroupProp={props.onEditGroupProp}
-                       onDeleteGroup={props.onDeleteGroup} />
-          }
-        </div>
+      </div>
+      <div className="col-sm-9 col-md-10 container">
+        <Route name="group"
+               path={`${props.match.url}:groupId`}
+               component={Group} />
+        <Route name="default"
+               exact
+               path={props.match.url}
+               render={() => (
+                 <h3>Default stuff</h3>
+               )}>
+        </Route>
       </div>
     </div>
   );
 };
 HomeView.propTypes = {
   groups: PropTypes.arrayOf(PGroupReselect),
-  setSelectedGroup: PropTypes.func,
-  selectedGroup: PGroupReselect,
-  onAddQuestionnaire: PropTypes.func,
-  onDeleteQuestionnaire: PropTypes.func,
-  onEditGroupProp: PropTypes.func,
-  onDeleteGroup: PropTypes.func,
+  match: PropTypes.object
 };
