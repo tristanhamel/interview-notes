@@ -1,15 +1,15 @@
-import React from 'react';
-import propTypes from 'prop-types';
+import { AddGroupView } from './AddGroupView';
+import { connect } from 'react-redux';
 
-export class AddGroup extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+import { groups } from '../../selectors/groups.selector';
+import { addGroup } from '../../actions/groups.actions';
 
-  render() {
-    return <div></div>;
-  }
-}
-AddGroup.propTypes = {
+const mapStateToProps = (state) => ({
+  groups: groups(state)
+});
 
-};
+const mapDispatchToProps = dispatch => ({
+  onAddGroup: group => dispatch(addGroup(group)),
+});
+
+export const AddGroup = connect(mapStateToProps, mapDispatchToProps)(AddGroupView);

@@ -21,8 +21,9 @@ export const GroupsList = (props) => {
         </li>
       ))}
       <li className="list-group-item">
-        Add group &nbsp;<span className="glyphicon glyphicon-plus"></span>
-        {/*<AddGroup />*/}
+        <Link to="/new-group">
+          Add group &nbsp;<span className="glyphicon glyphicon-plus"></span>
+        </Link>
       </li>
     </ul>
   );

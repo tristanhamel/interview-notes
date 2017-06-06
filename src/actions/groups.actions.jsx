@@ -1,6 +1,10 @@
 import * as actions from '../constants/ActionTypes';
 import { batchActions } from 'redux-batched-actions';
 
+export function addGroup(group) {
+  return (dispatch) => {};
+}
+
 export function editGroupProp(prop, groupId) {
   return (dispatch, getState) => {
     const group = Object.assign({}, getState().groups.find(g => g.id === groupId), prop);
