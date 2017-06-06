@@ -71,7 +71,7 @@ export class GroupView extends React.Component{
               );
             })}
              <li className="questionnaires-list-add">
-               <AddQuestionnaire onSave={newTitle => this.props.onAddQuestionnaire(newTitle)} />
+               <AddQuestionnaire onSave={newTitle => this.props.onAddQuestionnaire(newTitle, this.props.group.id)} />
              </li>
           </ul>
 

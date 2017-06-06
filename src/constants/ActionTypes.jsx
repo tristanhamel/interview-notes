@@ -22,7 +22,9 @@ export const GROUPS_DELETE_CATEGORY = 'GROUPS_DELETE_CATEGORY';
 // ------------------------------------------------------------
 
 export const QUESTIONS_ADD = 'QUESTION_ADD';
+export const QUESTIONS_ADD_MULTIPLE = 'QUESTION_ADD_MULTIPLE';
 export const QUESTIONS_DELETE = 'QUESTION_DELETE';
+export const QUESTIONS_DELETE_MULTIPLE = 'QUESTION_DELETE_MULTIPLE';
 export const QUESTIONS_EDIT = 'QUESTION_EDIT';
 
 // ------------------------------------------------------------

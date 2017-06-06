@@ -1,8 +1,34 @@
 import * as actions from '../constants/ActionTypes';
 import { batchActions } from 'redux-batched-actions';
 
-export function addGroup(group) {
-  return (dispatch) => {};
+export function addGroup(newGroup) {
+  return (dispatch, getState) => {
+    // if the template was selected from an existing group
+    let questions = [];
+    if(newGroup.template.hasOwnProperty('groupId')) {
+      questions = getState().groups
+        .find(g => g.id === newGroup.template.groupId)
+        .questionsIds
+        .map(id => getState().questions.find(q => q.id === id))
+        .map((q, i) =>  Object.assign({}, q, {id: `${Date.now()}${i}`, created_at: Date.now(), last_modified: Date.now()}));
+    }
+
+    const group = Object.assign({}, newGroup, {
+      id: `${Date.now()}`,
+      created_at: Date.now(),
+      last_modified: Date.now(),
+      questionsIds: questions.map(q => q.id),
+      questionnairesIds: []
+    });
+    delete group.template;
+
+    dispatch(batchActions([
+      {type: actions.QUESTIONS_ADD_MULTIPLE, payload: questions},
+      {type: actions.GROUPS_ADD, payload: group}
+    ]));
+
+    return new Promise((resolve) => {resolve(group);});
+  };
 }
 
 export function editGroupProp(prop, groupId) {

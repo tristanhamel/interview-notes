@@ -1,0 +1,10 @@
+.select-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.select-dropdown-content {
+  position: absolute;
+  margin-top: 2px;
+  min-width: 100%;
+}

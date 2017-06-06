@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onAddQuestionnaire: title => dispatch(addQuestionnaire(title)),
+  onAddQuestionnaire: (title, groupId) => dispatch(addQuestionnaire(title, groupId)),
   onDeleteQuestionnaire: id => dispatch(deleteQuestionnaire(id)),
   onEditGroupProp: (prop, id) => dispatch(editGroupProp(prop, id)),
   onDeleteGroup: (id) => dispatch(deleteGroup(id))

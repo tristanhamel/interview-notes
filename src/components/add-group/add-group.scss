@@ -1,0 +1,21 @@
+.add-group-view {
+  .panel-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 15rem;
+  }
+}
+
+.select-template-btn {
+  width: 14rem;
+}
+
+.group-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
