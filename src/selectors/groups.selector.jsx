@@ -23,7 +23,8 @@ export const groups = createSelector(
       group,
       {
         questionnaires: group.questionnairesIds.map(id => questionnaires.find(q => q.id === id)),
-        questions: questions(group)
+        questions: questions(group),
+        categories: Object.keys(questions(group))
       }
     ));
   }
