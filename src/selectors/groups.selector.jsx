@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import { scoring } from './scoring';
 
 const getGroups = (state) => state.groups;
 const getQuestionnaires = (state) => state.questionnaires;
@@ -21,7 +22,7 @@ export const populatedQuestionnaires = createSelector(
   }
 );
 
-export const groups = createSelector(
+export const populatedGroups = createSelector(
   [getGroups, populatedQuestionnaires, getQuestions],
   (g, selectedQuestionnaires, selectedQuestions) => {
     const questions = (group) => group.questionsIds
@@ -46,5 +47,18 @@ export const groups = createSelector(
         categories: Object.keys(questions(group)),
       }
     ));
+  }
+);
+
+export const groupsWithScores = createSelector(
+  [populatedGroups, getResponses],
+  (groups, responses) => {
+    const res = groups.map(group => {
+      const questions = Object.keys(group.questions).reduce((ar, prop ) => [...ar, ...group.questions[prop]], []);
+      const questionnaires = scoring(group.questionnaires, questions, responses);
+      return Object.assign({}, group, { questionnaires });
+    });
+    console.log(res);
+    return res;
   }
 );

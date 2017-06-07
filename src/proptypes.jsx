@@ -45,7 +45,7 @@ export const PTextResponse = PropTypes.shape(Object.assign({}, Response, {
 }));
 
 export const PYesNoResponse = PropTypes.shape(Object.assign({}, Response, {
-  value: PropTypes.bool
+  value: PropTypes.number
 }));
 
 export const PNumberResponse = PropTypes.shape(Object.assign({}, Response, {

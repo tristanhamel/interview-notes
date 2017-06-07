@@ -32,7 +32,7 @@ export class Question extends React.Component {
   render() {
     switch(this.props.question.questionType) {
       case 'yesNo':
-        return (<YesNoQuestion onChange={value => this.answer(value)}
+        return (<YesNoQuestion onChange={value => this.answer(value ? 1 : 0)}
                                question={this.props.question}
                                response={this.props.response} />);
       case 'text':

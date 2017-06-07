@@ -1,11 +1,10 @@
 import { AddGroupView } from './AddGroupView';
 import { connect } from 'react-redux';
 
-import { groups } from '../../selectors/groups.selector';
 import { addGroup } from '../../actions/groups.actions';
 
 const mapStateToProps = (state) => ({
-  groups: groups(state)
+  groups: state.groups
 });
 
 const mapDispatchToProps = dispatch => ({

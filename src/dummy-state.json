@@ -93,13 +93,13 @@
   "responses": [
     {
       "questionId": "1",
-      "value": false,
+      "value": 0,
       "score": null,
       "id": "1"
     },
     {
       "questionId": "2",
-      "value": true,
+      "value": 1,
       "score": null,
       "id": "2"
     },
@@ -111,13 +111,13 @@
     },
     {
       "questionId": "1",
-      "value": true,
+      "value": 1,
       "score": null,
       "id": "4"
     },
     {
       "questionId": "2",
-      "value": true,
+      "value": 1,
       "score": null,
       "id": "5"
     },

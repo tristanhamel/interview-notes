@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { editGroupProp, addCategory, deleteCategory } from '../../actions/groups.actions';
 import { addQuestion, deleteQuestion, editQuestion } from '../../actions/questions.actions';
 
-import { groups } from '../../selectors/groups.selector';
+import { populatedGroups } from '../../selectors/groups.selector';
 
 import { EditTemplateView } from './EditTemplateView';
 
 import './edit-template.scss';
 
 const mapStateToProps = (state, ownProps) => ({
-  group: groups(state).find(q => q.id === ownProps.match.params.groupId),
+  group: populatedGroups(state).find(q => q.id === ownProps.match.params.groupId),
 });
 
 const mapDispatchToProps = dispatch => ({

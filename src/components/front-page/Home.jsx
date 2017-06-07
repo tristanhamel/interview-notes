@@ -1,10 +1,8 @@
 import { HomeView } from './HomeView';
 import { connect } from 'react-redux';
 
-import { groups} from '../../selectors/groups.selector';
-
 const mapStateToProps = state => ({
-  groups: groups(state)
+  groups: state.groups
 });
 
 export const Home = connect(mapStateToProps)(HomeView);

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 
-import { PGroupReselect } from '../../proptypes';
+import { PGroup } from '../../proptypes';
 
 import { GroupsList } from './GroupsList';
 import { Group } from '../group-view/Group';
@@ -46,6 +46,6 @@ export const HomeView = props => {
   );
 };
 HomeView.propTypes = {
-  groups: PropTypes.arrayOf(PGroupReselect),
+  groups: PropTypes.arrayOf(PGroup),
   match: PropTypes.object
 };

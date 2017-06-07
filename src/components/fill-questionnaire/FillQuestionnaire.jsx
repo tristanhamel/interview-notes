@@ -4,11 +4,11 @@ import { editQuestionnaire } from '../../actions/questionnaires.actions';
 import { submitResponse } from '../../actions/responses.actions';
 import { FillQuestionnaireView } from './FillQuestionnaireView';
 
-import { populatedQuestionnaires, groups } from '../../selectors/groups.selector';
+import { populatedQuestionnaires, populatedGroups } from '../../selectors/groups.selector';
 
 const mapStateToProps = (state, ownProps) => ({
   questionnaire: populatedQuestionnaires(state).find(q => q.id === ownProps.match.params.questionnaireId),
-  group: groups(state).find(q => q.id === ownProps.match.params.groupId)
+  group: populatedGroups(state).find(q => q.id === ownProps.match.params.groupId)
 });
 
 const mapDispatchToProps = dispatch => ({
