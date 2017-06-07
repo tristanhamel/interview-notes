@@ -1,7 +1,3 @@
-export const EDITED_EDIT_TITLE = 'EDITED_EDIT_TITLE';
-export const EDITED_EDIT_DESCRIPTION = 'EDITED_EDIT_DESCRIPTION';
-export const EDITED_RESET = 'EDITED_RESET';
-
 // ------------------------------------------------------------
 //   Groups
 // ------------------------------------------------------------
@@ -26,6 +22,16 @@ export const QUESTIONS_ADD_MULTIPLE = 'QUESTION_ADD_MULTIPLE';
 export const QUESTIONS_DELETE = 'QUESTION_DELETE';
 export const QUESTIONS_DELETE_MULTIPLE = 'QUESTION_DELETE_MULTIPLE';
 export const QUESTIONS_EDIT = 'QUESTION_EDIT';
+
+// ------------------------------------------------------------
+//   Responses
+// ------------------------------------------------------------
+
+export const RESPONSES_ADD = 'RESPONSES_ADD';
+export const RESPONSES_ADD_MULTIPLE = 'RESPONSES_ADD_MULTIPLE';
+export const RESPONSES_DELETE = 'RESPONSES_DELETE';
+export const RESPONSES_DELETE_MULTIPLE = 'RESPONSES_DELETE_MULTIPLE';
+export const RESPONSES_EDIT = 'RESPONSES_EDIT';
 
 // ------------------------------------------------------------
 //   Questionnaires

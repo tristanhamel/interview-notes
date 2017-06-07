@@ -8,7 +8,7 @@ export const Question = {
   id: PropTypes.string,
   questionType: PropTypes.oneOf(['yesNo', 'text', 'number', 'currency']),
   label: PropTypes.string,
-  score: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+  score: PropTypes.oneOf(['user', 'auto'])
 };
 export const PQuestion = PropTypes.shape(Question);
 
@@ -34,7 +34,9 @@ export const PNumberQuestion = PropTypes.shape(Object.assign({}, Question, {
 
 const Response = {
   questionId: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.number])
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.number]),
+  score: PropTypes.number,
+  id: PropTypes.string
 };
 export const PResponse = PropTypes.shape(Response);
 
@@ -67,7 +69,7 @@ const Questionnaire = {
   created_at: PropTypes.number,
   last_modified: PropTypes.number,
   title: PropTypes.string,
-  responses: PropTypes.arrayOf(PResponse)
+  responsesIds: PropTypes.arrayOf(PropTypes.string)
 };
 export const PQuestionnaire = PropTypes.shape(Questionnaire);
 
@@ -104,5 +106,6 @@ export const PState = {
   last_modified: PropTypes.number,
   edited: PropTypes.string,
   groups: PropTypes.arrayOf(PGroup),
-  questionnaires: PropTypes.arrayOf(PQuestionnaire)
+  questionnaires: PropTypes.arrayOf(PQuestionnaire),
+  responses: PropTypes.arrayOf(PResponse)
 };

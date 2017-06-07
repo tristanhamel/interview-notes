@@ -22,7 +22,10 @@ export class Question extends React.Component {
     }
 
     this.answerTimeout = setTimeout(() => {
-      this.props.onChange({questionId: this.props.question.id, value});
+      this.props.onChange(Object.assign(
+        {},
+        this.props.response,
+        {questionId: this.props.question.id, value}));
     }, 150);
   }
 

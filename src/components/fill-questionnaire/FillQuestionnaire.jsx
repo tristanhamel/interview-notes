@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
 
-import { editQuestionnaire, submitResponse } from '../../actions/questionnaires.actions';
+import { editQuestionnaire } from '../../actions/questionnaires.actions';
+import { submitResponse } from '../../actions/responses.actions';
 import { FillQuestionnaireView } from './FillQuestionnaireView';
 
-import { groups } from '../../selectors/groups.selector';
+import { populatedQuestionnaires, groups } from '../../selectors/groups.selector';
 
 const mapStateToProps = (state, ownProps) => ({
-  questionnaire: state.questionnaires.find(q => q.id === ownProps.match.params.questionnaireId),
+  questionnaire: populatedQuestionnaires(state).find(q => q.id === ownProps.match.params.questionnaireId),
   group: groups(state).find(q => q.id === ownProps.match.params.groupId)
 });
 

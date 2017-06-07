@@ -20,25 +20,25 @@ export const questionnaires = (state = initialState, {type, payload}) => {
     }
 
     case actions.QUESTIONNAIRES_ADD_RESPONSE: {
-      const questionnaires = state.filter(q => q.id === payload.questionnaireIds);
+      const questionnaires = state.filter(q => q.id === payload.questionnaireId);
       if(!questionnaires.length) {
         return state;
       }
 
       return state
-        .map(q => payload.questionnaireIds.indexOf(q.id) === -1 ? q :
-          Object.assign({}, q, {responses: [...q.responses, payload.response]}));
+        .map(q => payload.questionnaireId !== q.id ? q :
+          Object.assign({}, q, {responsesIds: [...q.responsesIds, payload.responseId]}));
     }
 
     case actions.QUESTIONNAIRES_DELETE_RESPONSE: {
-      const questionnaires = state.filter(q => payload.questionnaireIds.indexOf(q.id) !== -1);
+      const questionnaires = state.filter(q => payload.questionnaireId !== q.id);
       if(!questionnaires.length) {
         return state;
       }
 
       return state
-        .map(q => payload.questionnaireIds.indexOf(q.id) === -1 ? q :
-          Object.assign({}, q, {responses: q.responses.filter(r => r.questionId !== payload.questionId)}));
+        .map(q => payload.questionnaireId !== q.id ? q :
+          Object.assign({}, q, {responseIds: q.responseIds.filter(r => r !== payload.responseId)}));
     }
 
     default:

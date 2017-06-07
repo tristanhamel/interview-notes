@@ -1,5 +1,4 @@
 {
-  "edited": null,
   "groups": [
     {
       "created_at": 1493646665000,
@@ -28,20 +27,7 @@
       "last_modified": 1493646665000,
       "title": "company1",
       "description": "Some great company",
-      "responses": [
-        {
-          "questionId": "1",
-          "value": true
-        },
-        {
-          "questionId": "2",
-          "value": true
-        },
-        {
-          "questionId": "3",
-          "value": 60000
-        }
-      ]
+      "responsesIds": ["4", "5", "6"]
     },
     {
       "id": "2",
@@ -49,20 +35,7 @@
       "last_modified": 1493646665000,
       "title": "company2",
       "description": "Some other great company",
-      "responses": [
-        {
-          "questionId": "1",
-          "value": false
-        },
-        {
-          "questionId": "2",
-          "value": true
-        },
-        {
-          "questionId": "3",
-          "value": 80000
-        }
-      ]
+      "responsesIds": ["1", "2", "3"]
     },
     {
       "id": "3",
@@ -70,16 +43,7 @@
       "last_modified": 1493733065000,
       "title": "company3",
       "description": "Yet another great company",
-      "responses": [
-        {
-        "questionId": "1",
-        "value": null
-        },
-        {
-        "questionId": "2",
-        "value": null
-        }
-      ]
+      "responsesIds": []
     }
   ],
   "questions": [
@@ -87,7 +51,7 @@
       "id": "1",
       "questionType": "yesNo",
       "label": "FlexTime",
-      "score": 0,
+      "score": "auto",
       "options": ["Yes", "No"],
       "category": "Working environment"
     },
@@ -95,7 +59,7 @@
       "id": "2",
       "questionType": "yesNo",
       "label": "Health coverage",
-      "score": 0,
+      "score": "auto",
       "options": ["Yes", "No"],
       "category": "Benefits and compensation"
     },
@@ -104,7 +68,7 @@
       "questionType": "currency",
       "label": "Salary ($/y)",
       "kind": "$",
-      "score": 0,
+      "score": "auto",
       "placeholder": "salary",
       "category": "Benefits and compensation"
     },
@@ -112,7 +76,7 @@
       "id": "4",
       "questionType": "yesNo",
       "label": "FlexTime",
-      "score": 0,
+      "score": "auto",
       "options": ["Yes", "No"],
       "category": "Working environment"
     },
@@ -121,9 +85,47 @@
       "questionType": "text",
       "label": "Salary ($/y)",
       "kind": "$",
-      "score": 0,
+      "score": "user",
       "placeholder": "salary",
       "category": "Benefits and compensation"
+    }
+  ],
+  "responses": [
+    {
+      "questionId": "1",
+      "value": false,
+      "score": null,
+      "id": "1"
+    },
+    {
+      "questionId": "2",
+      "value": true,
+      "score": null,
+      "id": "2"
+    },
+    {
+      "questionId": "3",
+      "value": 80000,
+      "score": null,
+      "id": "3"
+    },
+    {
+      "questionId": "1",
+      "value": true,
+      "score": null,
+      "id": "4"
+    },
+    {
+      "questionId": "2",
+      "value": true,
+      "score": null,
+      "id": "5"
+    },
+    {
+      "questionId": "3",
+      "value": 60000,
+      "score": null,
+      "id": "6"
     }
   ]
 }
