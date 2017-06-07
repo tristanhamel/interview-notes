@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Autocomplete from 'react-autocomplete';
 
 import { PQuestion } from '../../proptypes';
 
 import { QuestionEditor } from './QuestionEditor';
+import { SelectDropDown } from '../SelectDropDown';
+
+import './add-question.scss';
 
 export class AddQuestion extends React.Component {
   constructor(props) {
@@ -34,32 +36,35 @@ export class AddQuestion extends React.Component {
     });
   }
 
-  setQuestionType(label, template) {
-    this.setState({selectedTemplate: label, newQuestion: Object.assign({}, template)});
+  setQuestionType(template) {
+    this.setState({selectedTemplate: template, newQuestion: Object.assign({}, template)});
   }
 
   render() {
     return <div>
       {!this.state.isEditing &&
-        <div className="add-question-toggle"
-             onClick={() => this.edit()}>
+        <button className="btn btn-default add-question-toggle"
+                onClick={() => this.edit()}>
           <span><span className="glyphicon glyphicon-plus"></span>Add a new question</span>
-        </div>
+        </button>
       }
       {this.state.isEditing &&
         <div className="add-question-form">
           <span>Select a question template: </span>
-          <Autocomplete getItemValue={item => item.label}
-                        items={this.props.templateQuestions}
-                        renderItem={(item, isHighlighted) =>
-                          <div style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
-                            {item.label}
-                          </div>
-                        }
-                        shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) !== -1}
-                        onChange={(e, value) => this.setState({selectedTemplate: value})}
-                        onSelect={(value, item) => this.setQuestionType(value, item)}
-                        value={this.state.selectedTemplate} />
+          <SelectDropDown renderHeader={(option) =>
+                            <button className="btn btn-primary select-question-btn">
+                              {this.state.selectedTemplate ? option.label  : 'select a template'}
+                            </button>}
+                          renderOption={(template) =>
+                            <div className="select-question-option">
+                               <span>{template.label}</span>
+                               <span className="badge">{template.questionType}</span>
+                            </div>
+                          }
+                          activeClass="active"
+                          selectedOption={this.state.newQuestion}
+                          options={this.props.templateQuestions}
+                          onSelect={(template) => this.setQuestionType(template)} />
           {this.state.newQuestion.questionType &&
             <QuestionEditor question={this.state.newQuestion}
                             onSave={question => this.add(question)}
@@ -68,7 +73,7 @@ export class AddQuestion extends React.Component {
           }
           {!this.state.newQuestion.questionType &&
             <div>
-              <button className="btn btn-sm btn-default"
+              <button className="btn btn-default"
                       type="cancel"
                       onClick={()=> this.reset()}>Cancel</button>
             </div>

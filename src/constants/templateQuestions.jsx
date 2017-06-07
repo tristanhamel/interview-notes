@@ -1,6 +1,30 @@
-// import * as actions from '../constants/ActionTypes';
-
-const initialState = [
+export const templateQuestions = [
+  {
+    questionType: 'currency',
+    label: 'Default currency question',
+    score: 'auto',
+    kind: '$',
+    category: 'default'
+  },
+  {
+    questionType: 'yesNo',
+    label: 'Default yes-no question',
+    score: 'auto',
+    options: ['Yes', 'No'],
+    category: 'default'
+  },
+  {
+    questionType: 'text',
+    label: 'Default text question',
+    score: 0,
+    category: 'default'
+  },
+  {
+    questionType: 'number',
+    label: 'Default number question',
+    score: 'auto',
+    category: 'default'
+  },
   {
     questionType: 'currency',
     label: 'Salary',
@@ -48,10 +72,3 @@ const initialState = [
     category: 'Benefits and compensation'
   }
 ];
-
-export const templateQuestions = (state = initialState, {type, payload}) => {
-  switch (type) {
-    default:
-      return state;
-  }
-};

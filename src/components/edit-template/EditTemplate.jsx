@@ -11,7 +11,6 @@ import './edit-template.scss';
 
 const mapStateToProps = (state, ownProps) => ({
   group: groups(state).find(q => q.id === ownProps.match.params.groupId),
-  templateQuestions: state.templateQuestions
 });
 
 const mapDispatchToProps = dispatch => ({

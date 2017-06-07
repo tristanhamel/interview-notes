@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { PQuestion, PGroup } from '../../proptypes';
+import { templateQuestions } from '../../constants/templateQuestions';
+import { PGroup } from '../../proptypes';
 import { EditText } from '../EditText';
 import { AddQuestion } from './AddQuestion';
 import { EditQuestion } from './EditQuestion';
@@ -19,6 +20,13 @@ export class EditTemplateView extends React.Component {
 
   addCategory(cat) {
     this.setState({tempCats: [...this.state.tempCats, cat]});
+  }
+
+  addQuestion(question, category) {
+    const newQuestion = question.cat === 'default' ? Object.assign({}, question, category) :
+      question;
+
+    this.props.onAddQuestion(newQuestion, this.props.group.id);
   }
 
   deleteCategory(cat) {
@@ -41,8 +49,8 @@ export class EditTemplateView extends React.Component {
   }
 
   templateQuestions(cat) {
-    return this.props.templateQuestions
-      .filter(q => q.category === cat);
+    return templateQuestions
+      .filter(q => q.category === cat || q.category === 'default');
   }
 
   render() {
@@ -103,7 +111,7 @@ export class EditTemplateView extends React.Component {
                 <ul className="list-group">
                   <li className="list-group-item">
                     <AddQuestion templateQuestions={this.templateQuestions(cat)}
-                                 onAdd={question => this.props.onAddQuestion(question, this.props.group.id)}/>
+                                 onAdd={question => this.addQuestion(question, cat)}/>
                   </li>
                 </ul>
               </li>
@@ -125,7 +133,6 @@ export class EditTemplateView extends React.Component {
 }
 
 EditTemplateView.propTypes = {
-  templateQuestions: PropTypes.arrayOf(PQuestion).isRequired,
   group: PGroup.isRequired,
   onDeleteCategory: PropTypes.func,
   onAddQuestion: PropTypes.func.isRequired,

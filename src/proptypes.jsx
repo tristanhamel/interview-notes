@@ -8,7 +8,7 @@ export const Question = {
   id: PropTypes.string,
   questionType: PropTypes.oneOf(['yesNo', 'text', 'number', 'currency']),
   label: PropTypes.string,
-  score: PropTypes.number
+  score: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 export const PQuestion = PropTypes.shape(Question);
 

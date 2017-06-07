@@ -29,8 +29,8 @@ export class QuestionEditor extends React.Component {
 
       <form className="form">
         <div className="form-item">
-          <span>Answer type: </span>
-          <span>{this.props.question.questionType}</span>
+          <span>Question type: </span>
+          <span className="badge">{this.props.question.questionType}</span>
         </div>
 
         <div className="input-group form-item">
@@ -83,10 +83,10 @@ export class QuestionEditor extends React.Component {
 
         <div className="form-item" >
           <button type="submit"
-                  className="btn btn-primary btn-sm"
+                  className="btn btn-primary"
                   onClick={() => this.save()}>{this.props.submitLabel || 'OK'}</button>
           <button type="cancel"
-                  className="btn btn-default btn-sm"
+                  className="btn btn-default"
                   onClick={()=> this.props.onCancel()}>Cancel</button>
         </div>
       </form>
