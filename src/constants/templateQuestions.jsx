@@ -26,6 +26,14 @@ export const templateQuestions = [
     category: 'default'
   },
   {
+    questionType: 'select',
+    label: 'Default select question',
+    placeholder: 'select an option',
+    score: 'auto',
+    options: [],
+    category: 'default'
+  },
+  {
     questionType: 'currency',
     label: 'Salary',
     score: 'auto',
@@ -40,9 +48,15 @@ export const templateQuestions = [
     category: 'Benefits and compensation'
   },
   {
-    questionType: 'text',
-    label: 'Operating system (Mac, Linux, ...)',
-    score: 'user',
+    questionType: 'select',
+    label: 'Operating system',
+    placeholder: 'select an option',
+    score: 'auto',
+    options: [
+      {label: 'Mac', value: 1.5},
+      {label: 'Linux', value: 1},
+      {label: 'Windows', value: 0},
+    ],
     category: 'Development environment'
   },
   {

@@ -26,6 +26,13 @@ export const QuestionnaireTableCell = (props) => {
           <span>{Number(props.response.value).toLocaleString('en')}{props.question.kind}</span>
           <span>{props.response.score}</span>
         </span>);
+
+    case 'select':
+      return (
+        <span>
+          <span>{props.response.value.label}</span>
+          <span>{props.response.score}</span>
+        </span>);
   }
 };
 QuestionnaireTableCell.propTypes = {

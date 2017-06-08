@@ -24,6 +24,24 @@ export class QuestionEditor extends React.Component {
     this.setState({question: Object.assign({}, this.state.question, item)});
   }
 
+  addSelectOption() {
+    const option = {
+      label: 'New option',
+      value: 1
+    };
+    this.updateQuestion({options: [...this.props.question.options, option]});
+  }
+
+  deleteSelectOption(index) {
+    const options = this.props.question.options.filter((i) => i !== index);
+    this.updateQuestion({options});
+  }
+
+  updateSelectQuestionOptions(label, value, index) {
+    const options = this.props.question.options.map((o, i) => i === index ? {label, value} : o);
+    this.updateQuestion({options});
+  }
+
   render() {
     return <div className="question-editor">
 
@@ -79,6 +97,48 @@ export class QuestionEditor extends React.Component {
                    placeholder="No"/>
           </div>
         </fieldset>
+        }
+        {this.state.question.questionType === 'select' &&
+          <div>
+            {this.state.question.options.map((option, i) => (
+              <div key={i}>
+                <div onClick={() => this.deleteSelectOption(i)}>
+                  <span className="glyphicon glyphicon-trash"></span>
+                  <span>Delete option</span>
+                </div>
+                <fieldset>
+                  <div className="input-group form-item">
+                    <label htmlFor={`question-editor-select-options-label${i}`}
+                           className="input-group-addon">Label:</label>
+                    <input type="text"
+                           className="form-control"
+                           id={`question-editor-select-options-label${i}`}
+                           value={option.label}
+                           onChange={e => this.updateSelectQuestionOptions(e.target.value, option.value, i)}/>
+                  </div>
+                </fieldset>
+                <fieldset>
+                  <div className="input-group form-item">
+                    <label htmlFor={`question-editor-select-options-value${i}`}
+                           className="input-group-addon">Value:</label>
+                    <input type="number"
+                           step="1"
+                           className="form-control"
+                           id={`question-editor-select-options-value${i}`}
+                           value={option.value}
+                           onChange={e => this.updateSelectQuestionOptions(option.label, e.target.value,i)}/>
+                  </div>
+                </fieldset>
+              </div>
+            ))}
+            <div>
+              <button className="btn btn-default"
+                      onClick={() => this.addSelectOption()}>
+                <span className="glyphicon glyphicon-plus"></span>
+                <span>Add an option</span>
+              </button>
+            </div>
+          </div>
         }
 
         <div className="form-item" >

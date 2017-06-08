@@ -7,14 +7,21 @@ export function scoring(questionnaires, questions, oldResponses) {
 
       if(question.score === 'auto') {
         const minMax = weightedResponses
-          .reduce((obj, r) => ({
-            min: (r.value < obj.min || obj.min === null) ? r.value : obj.min,
-            max: (r.value > obj.max  || obj.max === null) ? r.value : obj.max,
-          }), {min: null, max: null});
+          .reduce((obj, r) => {
+            // select responses have an object as value
+            const value = typeof r.value === 'number' ? r.value : r.value.value;
+
+            return {
+              min: (value < obj.min || obj.min === null) ? value : obj.min,
+              max: (value > obj.max  || obj.max === null) ? value : obj.max
+            };
+          }, {min: null, max: null});
 
         weightedResponses
           .forEach(r => {
-            const score = (r.value - minMax.min)/(minMax.max - minMax.min);
+            const value = typeof r.value === 'number' ? r.value : r.value.value;
+
+            const score = (value - minMax.min)/(minMax.max - minMax.min);
 
             // if all scores are 1 score is NaN
             r.score = isNaN(score) ? 1 : score;

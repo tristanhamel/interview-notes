@@ -6,7 +6,7 @@ import { questionCategories } from './constants/questionCategories';
 // ------------------------------------------------------------
 export const Question = {
   id: PropTypes.string,
-  questionType: PropTypes.oneOf(['yesNo', 'text', 'number', 'currency']),
+  questionType: PropTypes.oneOf(['yesNo', 'text', 'number', 'currency', 'select']),
   label: PropTypes.string,
   score: PropTypes.oneOf(['user', 'auto'])
 };
@@ -17,7 +17,10 @@ export const PTextQuestion = PropTypes.shape(Object.assign({}, Question, {
 }));
 
 export const PYesNoQuestion = PropTypes.shape(Object.assign({}, Question, {
-  // options: PropTypes.arrayOf(PropTypes.shape({label: PropTypes.string, value: PropTypes.any}))
+  options: PropTypes.array
+}));
+
+export const PSelectQuestion = PropTypes.shape(Object.assign({}, Question, {
   options: PropTypes.array
 }));
 
@@ -34,7 +37,7 @@ export const PNumberQuestion = PropTypes.shape(Object.assign({}, Question, {
 
 const Response = {
   questionId: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.number]),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.number, PropTypes.object]),
   score: PropTypes.number,
   id: PropTypes.string
 };
@@ -45,7 +48,11 @@ export const PTextResponse = PropTypes.shape(Object.assign({}, Response, {
 }));
 
 export const PYesNoResponse = PropTypes.shape(Object.assign({}, Response, {
-  value: PropTypes.number
+  value: PropTypes.oneOfType([PropTypes.number])
+}));
+
+export const PSelectResponse = PropTypes.shape(Object.assign({}, Response, {
+  value: PropTypes.object
 }));
 
 export const PNumberResponse = PropTypes.shape(Object.assign({}, Response, {

@@ -7,7 +7,7 @@
       "title": "Group1",
       "description": "in August",
       "questionnairesIds": ["1", "2"],
-      "questionsIds": ["1","2","3"],
+      "questionsIds": ["1","2","3","6"],
       "categories": ["Benefits and compensation", "Working environment"]
     },
     {
@@ -27,7 +27,7 @@
       "last_modified": 1493646665000,
       "title": "company1",
       "description": "Some great company",
-      "responsesIds": ["4", "5", "6"]
+      "responsesIds": ["4", "5", "6", "7"]
     },
     {
       "id": "2",
@@ -35,7 +35,7 @@
       "last_modified": 1493646665000,
       "title": "company2",
       "description": "Some other great company",
-      "responsesIds": ["1", "2", "3"]
+      "responsesIds": ["1", "2", "3", "8"]
     },
     {
       "id": "3",
@@ -88,6 +88,19 @@
       "score": "user",
       "placeholder": "salary",
       "category": "Benefits and compensation"
+    },
+    {
+      "id": "6",
+      "questionType": "select",
+      "label": "Operating system",
+      "score": "auto",
+      "placeholder": "select an option",
+      "options": [
+        {"label": "Mac", "value": 1.5},
+        {"label": "Linux", "value": 1},
+        {"label": "Windows", "value": 0}
+      ],
+      "category": "Development environment"
     }
   ],
   "responses": [
@@ -126,6 +139,18 @@
       "value": 60000,
       "score": null,
       "id": "6"
+    },
+    {
+      "questionId": "6",
+      "value": {"label": "Mac", "value": 1.5},
+      "score": null,
+      "id": "7"
+    },
+    {
+      "questionId": "6",
+      "value": {"label": "Linux", "value": 1},
+      "score": null,
+      "id": "8"
     }
   ]
 }
