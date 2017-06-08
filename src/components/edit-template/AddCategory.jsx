@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Autocomplete from 'react-autocomplete';
+
+import { SelectDropDown } from '../SelectDropDown';
 
 export class AddCategory extends React.Component {
   constructor(props) {
@@ -19,17 +20,16 @@ export class AddCategory extends React.Component {
   render() {
     return <div className="add-category">
       <span>Add a new category: </span>
-      <Autocomplete getItemValue={item => item}
-                    items={this.props.categories}
-                    renderItem={(item, isHighlighted) =>
-                      <div style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
-                        {item}
-                      </div>
-                    }
-                    shouldItemRender={(item, value) => item.toLowerCase().indexOf(value.toLowerCase()) !== -1}
-                    onChange={(e, value) => this.setState({selectedCat: value})}
-                    onSelect={(value) => this.add(value)}
-                    value={this.state.selectedCat} />
+      <SelectDropDown options={this.props.categories}
+                      renderOption={(option) => <span>{option}</span>}
+                      renderHeader={(option) => (
+                        <button className="btn btn-primary select-category-btn">
+                          {this.state.selectedCat ? option : 'select a template'}
+                        </button>
+                      )}
+                      onSelect={(category) => this.add(category)}
+                      activeClass="active"
+                      selectedOption={this.state.selectedCat} />
     </div>;
   }
 }

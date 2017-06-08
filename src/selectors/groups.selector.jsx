@@ -58,7 +58,6 @@ export const groupsWithScores = createSelector(
       const questionnaires = scoring(group.questionnaires, questions, responses);
       return Object.assign({}, group, { questionnaires });
     });
-    console.log(res);
     return res;
   }
 );

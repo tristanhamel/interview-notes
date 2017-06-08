@@ -16,7 +16,7 @@ export const templateQuestions = [
   {
     questionType: 'text',
     label: 'Default text question',
-    score: 0,
+    score: 'user',
     category: 'default'
   },
   {
@@ -28,47 +28,47 @@ export const templateQuestions = [
   {
     questionType: 'currency',
     label: 'Salary',
-    score: 0,
+    score: 'auto',
     kind: '$',
     category: 'Benefits and compensation'
   },
   {
     questionType: 'yesNo',
     label: 'HealthCare Coverage',
-    score: 0,
+    score: 'auto',
     options: ['Yes', 'No'],
     category: 'Benefits and compensation'
   },
   {
     questionType: 'text',
     label: 'Operating system (Mac, Linux, ...)',
-    score: 0,
+    score: 'user',
     category: 'Development environment'
   },
   {
     questionType: 'yesNo',
     label: 'Distance working',
-    score: 0,
+    score: 'auto',
     options: ['Yes', 'No'],
     category: 'Working environment'
   },
   {
     questionType: 'text',
     label: 'IDE (Webstorm,...)',
-    score: 0,
+    score: 'user',
     category: 'Development environment'
   },
   {
     questionType: 'yesNo',
     label: 'Flextime',
-    score: 0,
+    score: 'auto',
     options: ['Yes', 'No'],
     category: 'Working environment'
   },
   {
     questionType: 'number',
     label: 'Holidays (weeks/year)',
-    score: 0,
+    score: 'auto',
     category: 'Benefits and compensation'
   }
 ];

@@ -47,6 +47,6 @@ SelectDropDown.propTypes = {
   options: PropTypes.array,
   renderOption: PropTypes.func,
   onSelect: PropTypes.func,
-  selectedOption: PropTypes.object,
+  selectedOption: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   renderHeader: PropTypes.func
 };
