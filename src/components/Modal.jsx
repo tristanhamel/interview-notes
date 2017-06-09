@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { resetModal } from '../actions/ui.actions';
+import { login } from '../actions/users.actions';
 import { Authenticate } from './Authenticate.jsx';
 
 import './modal.scss';
@@ -24,7 +25,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  hideModal: () => dispatch(resetModal())
+  hideModal: () => dispatch(resetModal()),
+  login: provider => dispatch(login(provider))
 });
 
 

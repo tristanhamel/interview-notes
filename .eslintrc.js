@@ -33,5 +33,8 @@ module.exports = {
             "error",
             "always"
         ]
+    },
+    "globals": {
+      "fetch": true
     }
 };
