@@ -15,14 +15,16 @@ import initialState from './dummy-state.json';
 
 import { Menu } from './components/Menu';
 import { Main } from './components/Main';
+import { Modal } from './components/Modal';
 
 import './styles/app.scss';
 import './styles/components.scss';
 
 const App = () => (
   <div className="main-container">
-    <Menu />
+    <Menu/>
     <Main/>
+    <Modal/>
   </div>
 );
 

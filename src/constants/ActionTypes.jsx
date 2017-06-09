@@ -42,3 +42,11 @@ export const QUESTIONNAIRES_REMOVE = 'QUESTIONNAIRES_REMOVE';
 export const QUESTIONNAIRES_EDIT = 'QUESTIONNAIRES_EDIT';
 export const QUESTIONNAIRES_ADD_RESPONSE = 'QUESTIONNAIRES_ADD_RESPONSE';
 export const QUESTIONNAIRES_DELETE_RESPONSE = 'QUESTIONNAIRES_DELETE_RESPONSE';
+
+
+// ------------------------------------------------------------
+//   UI
+// ------------------------------------------------------------
+
+export const UI_SET_MODAL = 'SET_MODAL';
+export const UI_RESET_MODAL = 'RESET_MODAL';
