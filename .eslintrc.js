@@ -35,6 +35,7 @@ module.exports = {
         ]
     },
     "globals": {
-      "fetch": true
+      "fetch": true,
+      "process": true
     }
 };
