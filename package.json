@@ -7,7 +7,9 @@
   "license": "MIT",
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
+    "deployd": "^0.8.9",
     "dotenv": "^4.0.0",
+    "dpd-passport": "^0.3.6",
     "lodash.isequal": "^4.5.0",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
@@ -50,5 +52,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack -p",
     "serve": "webpack-dev-server --open"
-  }
+  },
+  "dpdInclude": [
+    "dpd-passport"
+  ]
 }

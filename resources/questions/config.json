@@ -1,0 +1,85 @@
+{
+	"type": "Collection",
+	"properties": {
+		"questionType": {
+			"name": "questionType",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "questionType",
+			"order": 0
+		},
+		"label": {
+			"name": "label",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "label",
+			"order": 1
+		},
+		"score": {
+			"name": "score",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "score",
+			"order": 2
+		},
+		"category": {
+			"name": "category",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "category",
+			"order": 3
+		},
+		"placeholder": {
+			"name": "placeholder",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "placeholder",
+			"order": 4
+		},
+		"options": {
+			"name": "options",
+			"type": "array",
+			"typeLabel": "array",
+			"required": false,
+			"id": "options",
+			"order": 5
+		},
+		"kind": {
+			"name": "kind",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "kind",
+			"order": 6
+		},
+		"min": {
+			"name": "min",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "min",
+			"order": 7
+		},
+		"max": {
+			"name": "max",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "max",
+			"order": 8
+		},
+		"step": {
+			"name": "step",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "step",
+			"order": 9
+		}
+	}
+}

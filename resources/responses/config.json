@@ -1,0 +1,37 @@
+{
+	"type": "Collection",
+	"properties": {
+		"questionId": {
+			"name": "questionId",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "questionId",
+			"order": 0
+		},
+		"score": {
+			"name": "score",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "score",
+			"order": 1
+		},
+		"value": {
+			"name": "value",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "value",
+			"order": 2
+		},
+		"valueLabel": {
+			"name": "valueLabel",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "valueLabel",
+			"order": 3
+		}
+	}
+}
