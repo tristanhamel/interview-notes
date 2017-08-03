@@ -1,0 +1,18 @@
+@import "../styles/vars";
+
+.menu {
+  padding-left: 0;
+
+  .navbar-auth {
+    height: $navbar-height;
+    text-align: right;
+  }
+
+  .navbar-username {
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+

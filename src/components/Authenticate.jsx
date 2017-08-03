@@ -21,7 +21,6 @@ export class Authenticate extends React.Component {
   }
 
   onAuth(event) {
-    console.log(event);
     if(event.data && event.data.source && event.data.source === '@devtools-page') {
       return;
     }
