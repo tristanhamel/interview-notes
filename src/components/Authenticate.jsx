@@ -17,16 +17,25 @@ export class Authenticate extends React.Component {
     };
 
     // listens to messages from authProviders popups
-    window.addEventListener('message', data => this.onAuth(data), false);
+    window.addEventListener('message', event => this.onAuth(event), false);
   }
 
-  onAuth(data) {
+  onAuth(event) {
+    console.log(event);
+    if(event.data && event.data.source && event.data.source === '@devtools-page') {
+      return;
+    }
+
     const newState = {
       isProviderFormLoading: false,
-      error: data.success
+      error: event.data.success !== 'true'
     };
     this.setState(newState);
-    this.props.login(data);
+    this.props.login(event.data);
+
+    if(event.data.success) {
+      this.props.hideModal();
+    }
   }
 
   getProviderForm(provider) {

@@ -50,3 +50,10 @@ export const QUESTIONNAIRES_DELETE_RESPONSE = 'QUESTIONNAIRES_DELETE_RESPONSE';
 
 export const UI_SET_MODAL = 'SET_MODAL';
 export const UI_RESET_MODAL = 'RESET_MODAL';
+
+// ------------------------------------------------------------
+//   USER
+// ------------------------------------------------------------
+
+export const USER_UPDATE = 'USER_UPDATE';
+export const USER_RESET = 'USER_RESET';

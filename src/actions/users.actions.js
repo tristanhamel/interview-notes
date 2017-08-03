@@ -4,11 +4,11 @@ import { endPoints } from '../constants/endPoints';
 export function login(data) {
   return dispatch => {
     // save data in store
-    // dispatch({actions: actions.USER_UPDATE, payload: {id: data.uid, sid: data.sid}});
+    dispatch({type: actions.USER_UPDATE, payload: {uid: data.uid, sid: data.sid}});
 
     // get full profile from db
     const url = `${endPoints.USER}/me`;
-    fetch(url, {
+    return fetch(url, {
       method: 'GET',
       headers: new Headers,
       credentials: 'same-origin', // automatically add cookies
@@ -18,17 +18,7 @@ export function login(data) {
         return response.json();
       })
       .then(json =>  {
-        console.log(json);
+        dispatch({type: actions.USER_UPDATE, payload: json});
       });
   };
-
-  // const url = `${endPoints.GROUPS}`;
-  // return fetch(url, {
-  //   headers: new Headers,
-  //   method: 'GET',
-  //   mode: 'cors'
-  // })
-  //   .then(response => response.json())
-  //   .then(json => console.log(json));
-
 }

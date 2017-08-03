@@ -22,7 +22,7 @@ app.use('/after-auth',(req, res) => {
   res.send(`
     <html>
       <script type="text/javascript">
-        window.opener.postMessage(${data}, 'http://localhost:8080');
+        window.opener.postMessage(${data}, 'http://localhost:8080/after-auth');
         window.close();
       </script>
     </html>
