@@ -1,7 +1,7 @@
 import * as actions from '../constants/ActionTypes';
 import { endPoints } from '../constants/endPoints';
 import { getUserGroups } from './groups.actions';
-import { makeGETRequest } from './requests';
+import { makeGETRequest } from './requests.actions';
 
 export function login(data) {
   return dispatch => {
@@ -10,7 +10,7 @@ export function login(data) {
 
     // get full profile from db
     const url = `${endPoints.USER}/me`;
-    return makeGETRequest(url)
+    return dispatch(makeGETRequest(url))
       .then(json =>  {
         dispatch({type: actions.USER_UPDATE, payload: json});
         // reset data

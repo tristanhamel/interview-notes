@@ -56,6 +56,9 @@ export const QUESTIONNAIRES_RESET = 'QUESTIONNAIRES_RESET';
 
 export const UI_SET_MODAL = 'SET_MODAL';
 export const UI_RESET_MODAL = 'RESET_MODAL';
+export const UI_ON_REQUEST = 'UI_ON_REQUEST';
+export const UI_ON_RECEIVE = 'UI_ON_RECEIVE';
+export const UI_ON_RECEIVE_ERROR = 'UI_ON_RECEIVE_ERROR';
 
 // ------------------------------------------------------------
 //   USER

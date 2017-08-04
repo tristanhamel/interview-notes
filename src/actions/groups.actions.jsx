@@ -1,7 +1,7 @@
 import { batchActions } from 'redux-batched-actions';
 import * as actions from '../constants/ActionTypes';
 import { endPoints } from '../constants/endPoints';
-import { makeGETRequest } from './requests';
+import { makeGETRequest } from './requests.actions';
 
 export function getUserGroups() {
   return (dispatch) => {
@@ -13,7 +13,7 @@ export function getUserGroups() {
       actions.RESPONSES_RESET
     ]));
     const url = `${endPoints.GROUPS}`;
-    return makeGETRequest(url)
+    return dispatch(makeGETRequest(url))
       .then(json => {
         const groups = Object.assign({}, json);
         delete groups.questions;
