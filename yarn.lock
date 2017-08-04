@@ -1611,6 +1611,10 @@ dotenv@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-4.0.0.tgz#864ef1379aced55ce6f95debecdce179f7a0cd1d"
 
+dpd-feeder@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/dpd-feeder/-/dpd-feeder-0.1.2.tgz#65d3f8a71c1297cbfe637c21e06b0b41b0cee79e"
+
 dpd-passport@^0.3.6:
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/dpd-passport/-/dpd-passport-0.3.6.tgz#1ef5704f4d280808cddf1c3b6d8d00df92c0a646"

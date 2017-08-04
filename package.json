@@ -9,6 +9,7 @@
     "bootstrap-sass": "^3.3.7",
     "deployd": "^0.8.9",
     "dotenv": "^4.0.0",
+    "dpd-feeder": "^0.1.2",
     "dpd-passport": "^0.3.6",
     "lodash.isequal": "^4.5.0",
     "prop-types": "^15.5.10",
@@ -54,6 +55,7 @@
     "serve": "webpack-dev-server --open"
   },
   "dpdInclude": [
-    "dpd-passport"
+    "dpd-passport",
+    "dpd-feeder"
   ]
 }

@@ -1,6 +1,6 @@
 import * as actions from '../constants/ActionTypes';
 
-const initialState = {
+export const initialState = {
   uid: null
 };
 

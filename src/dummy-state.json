@@ -11,7 +11,8 @@
       "description": "in August",
       "questionnairesIds": ["1", "2"],
       "questionsIds": ["1","2","3","6"],
-      "categories": ["Benefits and compensation", "Working environment"]
+      "categories": ["Benefits and compensation", "Working environment"],
+      "owner": "a2a70ef2d452381f"
     },
     {
       "id": "2",
@@ -21,7 +22,8 @@
       "description": "in September",
       "questionnairesIds": ["3"],
       "questionsIds": ["4", "5"],
-      "categories": ["Benefits and compensation", "Working environment"]
+      "categories": ["Benefits and compensation", "Working environment"],
+      "owner": "a2a70ef2d452381f"
     }
   ],
   "questionnaires": [
