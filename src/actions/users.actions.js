@@ -1,5 +1,6 @@
 import * as actions from '../constants/ActionTypes';
 import { endPoints } from '../constants/endPoints';
+import { getUserGroups } from './groups.actions';
 
 export function login(data) {
   return dispatch => {
@@ -19,6 +20,8 @@ export function login(data) {
       })
       .then(json =>  {
         dispatch({type: actions.USER_UPDATE, payload: json});
+        // reset data
+        dispatch(getUserGroups());
       });
   };
 }

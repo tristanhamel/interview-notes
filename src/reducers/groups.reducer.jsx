@@ -10,6 +10,9 @@ export const groups = (state = initialState, {type, payload}) => {
     case actions.GROUPS_REMOVE:
       return state.filter(g => g.id !== payload);
 
+    case actions.GROUPS_RECEIVED:
+      return payload;
+
     case actions.GROUPS_EDIT:
       return state.map(g => g.id === payload.id ? payload : g);
 

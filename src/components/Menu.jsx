@@ -25,7 +25,8 @@ export const MenuView = props =>  (
             }
             {props.user.name &&
               <div className="navbar-username">
-                {props.user.name}
+                <span className="glyphicon glyphicon-user"></span>
+                <span className="username">{props.user.name}</span>
               </div>
             }
           </div>

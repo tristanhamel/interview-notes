@@ -12,6 +12,8 @@ export const GROUPS_DELETE_QUESTION = 'GROUPS_DELETE_QUESTION';
 export const GROUPS_DELETE_QUESTIONS = 'GROUPS_DELETE_QUESTIONS';
 export const GROUPS_ADD_CATEGORY = 'GROUPS_ADD_CATEGORY';
 export const GROUPS_DELETE_CATEGORY = 'GROUPS_DELETE_CATEGORY';
+export const GROUPS_RESET = 'GROUPS_RESET';
+export const GROUPS_RECEIVED = 'GROUPS_RECEIVED';
 
 // ------------------------------------------------------------
 //   Questions
@@ -22,6 +24,7 @@ export const QUESTIONS_ADD_MULTIPLE = 'QUESTION_ADD_MULTIPLE';
 export const QUESTIONS_DELETE = 'QUESTION_DELETE';
 export const QUESTIONS_DELETE_MULTIPLE = 'QUESTION_DELETE_MULTIPLE';
 export const QUESTIONS_EDIT = 'QUESTION_EDIT';
+export const QUESTIONS_RESET = 'QUESTIONS_RESET';
 
 // ------------------------------------------------------------
 //   Responses
@@ -32,16 +35,19 @@ export const RESPONSES_ADD_MULTIPLE = 'RESPONSES_ADD_MULTIPLE';
 export const RESPONSES_DELETE = 'RESPONSES_DELETE';
 export const RESPONSES_DELETE_MULTIPLE = 'RESPONSES_DELETE_MULTIPLE';
 export const RESPONSES_EDIT = 'RESPONSES_EDIT';
+export const RESPONSES_RESET = 'RESPONSES_RESET';
 
 // ------------------------------------------------------------
 //   Questionnaires
 // ------------------------------------------------------------
 
 export const QUESTIONNAIRES_ADD = 'QUESTIONNAIRES_ADD';
+export const QUESTIONNAIRES_ADD_MULTIPLE = 'QUESTIONNAIRES_ADD_MULTIPLE';
 export const QUESTIONNAIRES_REMOVE = 'QUESTIONNAIRES_REMOVE';
 export const QUESTIONNAIRES_EDIT = 'QUESTIONNAIRES_EDIT';
 export const QUESTIONNAIRES_ADD_RESPONSE = 'QUESTIONNAIRES_ADD_RESPONSE';
 export const QUESTIONNAIRES_DELETE_RESPONSE = 'QUESTIONNAIRES_DELETE_RESPONSE';
+export const QUESTIONNAIRES_RESET = 'QUESTIONNAIRES_RESET';
 
 
 // ------------------------------------------------------------

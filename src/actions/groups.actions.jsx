@@ -1,5 +1,41 @@
-import * as actions from '../constants/ActionTypes';
 import { batchActions } from 'redux-batched-actions';
+import * as actions from '../constants/ActionTypes';
+import { endPoints } from '../constants/endPoints';
+
+export function getUserGroups() {
+  return (dispatch) => {
+    // reset
+    dispatch(batchActions([
+      actions.GROUPS_RESET,
+      actions.QUESTIONS_RESET,
+      actions.QUESTIONNAIRES_RESET,
+      actions.RESPONSES_RESET
+    ]));
+    const url = `${endPoints.GROUPS}`;
+    return fetch(url, {
+      method: 'GET',
+      headers: new Headers,
+      credentials: 'same-origin', // automatically add cookies
+      mode: 'no-cors'
+    })
+      .then(response => response.json())
+      .then(json => {
+        const groups = Object.assign({}, json);
+        delete groups.questions;
+        delete groups.questionnaires;
+
+        const questionnaires = Object.assign({}, json.questionnaires);
+        delete questionnaires.responses;
+
+        return dispatch(batchActions([
+          {type: actions.GROUPS_RECEIVED, payload: groups},
+          {type: actions.QUESTIONS_ADD_MULTIPLE, payload: json.questions},
+          {type: actions.QUESTIONNAIRES_ADD_MULTIPLE, payload: questionnaires},
+          {type: actions.RESPONSES_ADD_MULTIPLE, payload: json.questionnaires.responses},
+        ]));
+      });
+  };
+}
 
 export function addGroup(newGroup) {
   return (dispatch, getState) => {
