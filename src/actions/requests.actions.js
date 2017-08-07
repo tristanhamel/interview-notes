@@ -6,20 +6,19 @@ function makeRequest(url, method, body) {
 
     return fetch(url, {
       method,
-      headers: new Headers,
+      headers: new Headers({'Content-Type': 'application/json'}),
       credentials: 'same-origin', // automatically add cookies
-      mode: 'no-cors',
-      body
+      body: JSON.stringify(body)
     })
-      .then(response => {
-        dispatch(onReceive());
-        return response.json();
-      })
-      .then(json => Array.isArray(json) ? serializer(json) : json)
-      .catch(error =>  {
-        dispatch(onReceiveError(error));
-        return Promise.reject(error);
-      });
+    .then(response => {
+      dispatch(onReceive());
+      return response.json();
+    })
+    .then(json => Array.isArray(json) ? serializer(json) : json)
+    .catch(error =>  {
+      dispatch(onReceiveError(error));
+      return Promise.reject(error);
+    });
   };
 }
 

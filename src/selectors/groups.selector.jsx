@@ -25,7 +25,7 @@ export const populatedQuestionnaires = createSelector(
 export const populatedGroups = createSelector(
   [getGroups, populatedQuestionnaires, getQuestions],
   (g, selectedQuestionnaires, selectedQuestions) => {
-    const questions = (group) => group.questionsIds
+    const questions = (group) => group.questions
       .map(id => selectedQuestions.find(q => q.id === id))
       .reduce((categorized, q) => {
         categorized[q.category] = categorized.hasOwnProperty(q.category) ?

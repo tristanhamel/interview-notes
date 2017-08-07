@@ -90,7 +90,7 @@ const Group = {
   last_modified: PropTypes.number,
   title: PropTypes.string,
   description: PropTypes.string,
-  questionsIds: PropTypes.arrayOf(PropTypes.string),
+  questions: PropTypes.arrayOf(PropTypes.string),
   questionnaires: PropTypes.arrayOf(PropTypes.string),
   categories: PropTypes.arrayOf(PropTypes.string)
 };

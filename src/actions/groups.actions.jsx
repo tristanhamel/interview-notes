@@ -15,7 +15,6 @@ export function getUserGroups() {
     const url = `${endPoints.GROUPS}`;
     return dispatch(makeGETRequest(url))
       .then(json => {
-        console.log(json);
         return dispatch(batchActions([
           {type: actions.GROUPS_RECEIVED, payload: json.group},
           {type: actions.QUESTIONS_ADD_MULTIPLE, payload: json.question},
@@ -34,22 +33,21 @@ export function addGroup(newGroup) {
     if(newGroup.template.hasOwnProperty('groupId')) {
       questions = getState().groups
         .find(g => g.id === newGroup.template.groupId)
-        .questionsIds
+        .questions
         .map(id => getState().questions.find(q => q.id === id))
-        .forEach(q => delete q.id);
+        .map(q => {delete q.id; return q;})
     }
 
     delete newGroup.template;
 
-    return makePOSTRequest(endPoints.GROUPS, {...newGroup, questions})
+    return dispatch(makePOSTRequest(endPoints.GROUPS, {...newGroup, questions}))
       .then(json => {
+        dispatch({type: actions.GROUPS_ADD, payload: json.group[0]});
         dispatch(batchActions([
-          {type: actions.QUESTIONS_ADD_MULTIPLE, payload: json.questions},
-          {type: actions.QUESTIONNAIRES_ADD_MULTIPLE, payload: json.questionnaires},
-          {type: actions.GROUPS_ADD, payload: json.groups}
+          {type: actions.QUESTIONS_ADD_MULTIPLE, payload: json.question}
         ]));
 
-        return json.groups[0];
+        return json.group[0];
       });
   };
 }

@@ -38,7 +38,7 @@ export const groups = (state = initialState, {type, payload}) => {
         return state;
       }
 
-      updatedGroup.questionsIds = [...updatedGroup.questionsIds, payload.question];
+      updatedGroup.questions = [...updatedGroup.questions, payload.question];
 
       return state
         .map(g => g.id !== payload.groupId ? g : updatedGroup);
@@ -50,7 +50,7 @@ export const groups = (state = initialState, {type, payload}) => {
         return state;
       }
 
-      updatedGroup.questionsIds = updatedGroup.questionsIds
+      updatedGroup.questions = updatedGroup.questions
         .filter(q => q !== payload.question);
 
       return state
@@ -63,7 +63,7 @@ export const groups = (state = initialState, {type, payload}) => {
         return state;
       }
 
-      updatedGroup.questionsIds = updatedGroup.questionsIds
+      updatedGroup.questions = updatedGroup.questions
         .filter(q => payload.questions.indexOf(q) === -1);
 
       return state

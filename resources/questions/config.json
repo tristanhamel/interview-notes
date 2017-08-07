@@ -81,13 +81,21 @@
 			"id": "step",
 			"order": 9
 		},
-        "group": {
-          "name": "group",
-          "type": "string",
-          "typeLabel": "string",
-          "required": true,
-          "id": "group",
-          "order": 10
-        }
+		"modified": {
+			"name": "modified",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "modified",
+			"order": 10
+		},
+		"created": {
+			"name": "created",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "created",
+			"order": 11
+		}
 	}
 }
