@@ -1,3 +1,4 @@
-dpd.responses.get({id: {$in: this.responsesIds}}, function(responses) {
-    this.responses = responses;
+dpd.responses.get({id: {$in: this.responses}}, function(responses) {
+  this.responses = responses;
 });
+this.type = 'questionnaire';

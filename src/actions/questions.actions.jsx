@@ -7,20 +7,20 @@ export function addQuestion(question, groupId) {
   return (dispatch, getState) => {
     dispatch(batchActions([
       {type: actions.QUESTIONS_ADD, payload: question},
-      {type: actions.GROUPS_ADD_QUESTION, payload: {questionId: question.id, groupId}}
+      {type: actions.GROUPS_ADD_QUESTION, payload: {question: question.id, groupId}}
     ]));
   };
 }
 
-export function deleteQuestion (questionId, groupId) {
+export function deleteQuestion (question, groupId) {
   return (dispatch, getState) => {
-    const responsesIds = getState().responses
-      .filter(r => r.questionId === questionId);
+    const responses = getState().responses
+      .filter(r => r.question === question);
 
     dispatch(batchActions([
-      {type: actions.QUESTIONS_DELETE, payload: questionId},
-      {type: actions.GROUPS_DELETE_QUESTION, payload: {questionId, groupId}},
-      {type: actions.RESPONSES_DELETE_MULTIPLE, payload: responsesIds}
+      {type: actions.QUESTIONS_DELETE, payload: question},
+      {type: actions.GROUPS_DELETE_QUESTION, payload: {question, groupId}},
+      {type: actions.RESPONSES_DELETE_MULTIPLE, payload: responses}
     ]));
   };
 }

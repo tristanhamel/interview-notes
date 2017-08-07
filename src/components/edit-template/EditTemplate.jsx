@@ -16,7 +16,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
   onAddQuestion: (question, groupId) => dispatch(addQuestion(question, groupId)),
   onDeleteCategory: (category, groupId) => dispatch(deleteCategory(category, groupId)),
-  onDeleteQuestion: (questionId, groupId) => dispatch(deleteQuestion(questionId, groupId)),
+  onDeleteQuestion: (question, groupId) => dispatch(deleteQuestion(question, groupId)),
   onEditQuestion: (question, groupId) => dispatch(editQuestion(question, groupId)),
   onEditGroupProps: (prop, id) => dispatch(editGroupProp(prop, id))
 });

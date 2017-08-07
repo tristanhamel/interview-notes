@@ -9,7 +9,7 @@
       "id": "1",
       "title": "Group1",
       "description": "in August",
-      "questionnairesIds": ["1", "2"],
+      "questionnaires": ["1", "2"],
       "questionsIds": ["1","2","3","6"],
       "categories": ["Benefits and compensation", "Working environment"],
       "owner": "a2a70ef2d452381f"
@@ -20,7 +20,7 @@
       "last_modified": 1493733065000,
       "title": "Group2",
       "description": "in September",
-      "questionnairesIds": ["3"],
+      "questionnaires": ["3"],
       "questionsIds": ["4", "5"],
       "categories": ["Benefits and compensation", "Working environment"],
       "owner": "a2a70ef2d452381f"
@@ -32,7 +32,7 @@
       "last_modified": 1493646665000,
       "title": "company1",
       "description": "Some great company",
-      "responsesIds": ["4", "5", "6", "7"]
+      "responses": ["4", "5", "6", "7"]
     },
     {
       "id": "2",
@@ -40,7 +40,7 @@
       "last_modified": 1493646665000,
       "title": "company2",
       "description": "Some other great company",
-      "responsesIds": ["1", "2", "3", "8"]
+      "responses": ["1", "2", "3", "8"]
     },
     {
       "id": "3",
@@ -48,7 +48,7 @@
       "last_modified": 1493733065000,
       "title": "company3",
       "description": "Yet another great company",
-      "responsesIds": []
+      "responses": []
     }
   ],
   "questions": [
@@ -110,49 +110,49 @@
   ],
   "responses": [
     {
-      "questionId": "1",
+      "question": "1",
       "value": 0,
       "score": null,
       "id": "1"
     },
     {
-      "questionId": "2",
+      "question": "2",
       "value": 1,
       "score": null,
       "id": "2"
     },
     {
-      "questionId": "3",
+      "question": "3",
       "value": 80000,
       "score": null,
       "id": "3"
     },
     {
-      "questionId": "1",
+      "question": "1",
       "value": 1,
       "score": null,
       "id": "4"
     },
     {
-      "questionId": "2",
+      "question": "2",
       "value": 1,
       "score": null,
       "id": "5"
     },
     {
-      "questionId": "3",
+      "question": "3",
       "value": 60000,
       "score": null,
       "id": "6"
     },
     {
-      "questionId": "6",
+      "question": "6",
       "value": {"label": "Mac", "value": 1.5},
       "score": null,
       "id": "7"
     },
     {
-      "questionId": "6",
+      "question": "6",
       "value": {"label": "Linux", "value": 1},
       "score": null,
       "id": "8"

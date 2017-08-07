@@ -26,7 +26,7 @@ export class Question extends React.Component {
       this.props.onChange(Object.assign(
         {},
         this.props.response,
-        {questionId: this.props.question.id, value}));
+        {question: this.props.question.id, value}));
     }, 50);
   }
 

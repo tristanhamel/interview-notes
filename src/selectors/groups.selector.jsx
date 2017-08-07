@@ -13,7 +13,7 @@ export const populatedQuestionnaires = createSelector(
       .map(q => Object.assign(
         {},
         q,
-        {responses: q.responsesIds
+        {responses: q.responses
           .map(id => responses
             .find(r => r.id === id)
           )
@@ -35,7 +35,7 @@ export const populatedGroups = createSelector(
         return categorized;
       }, {});
 
-    const questionnaires = (group) => group.questionnairesIds
+    const questionnaires = (group) => group.questionnaires
       .map(id => selectedQuestionnaires.find(q => q.id === id));
 
     return g.map(group => Object.assign(

@@ -16,7 +16,7 @@ export const GroupsList = (props) => {
             &nbsp;
             {group.title}
             &nbsp;
-            ({group.questionnairesIds.length})
+            ({group.questionnaires.length})
           </Link>
         </li>
       ))}

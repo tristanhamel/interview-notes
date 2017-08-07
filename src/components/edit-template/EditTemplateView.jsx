@@ -88,7 +88,7 @@ export class EditTemplateView extends React.Component {
                                     key={j}>
                           <EditQuestion question={q}
                                         onChange={response => this.props.onEditQuestion(response)}
-                                        onDelete={questionId => this.props.onDeleteQuestion(questionId, this.props.group.id)}/>
+                                        onDelete={question => this.props.onDeleteQuestion(question, this.props.group.id)}/>
                         </li>;
                       })}
                     <li className="list-group-item">

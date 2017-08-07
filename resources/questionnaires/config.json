@@ -25,12 +25,12 @@
 			"id": "title",
 			"order": 2
 		},
-		"responsesIds": {
-			"name": "responsesIds",
+		"responses": {
+			"name": "responses",
 			"type": "array",
 			"typeLabel": "array",
 			"required": true,
-			"id": "responsesIds",
+			"id": "responses",
 			"order": 3
 		}
 	}

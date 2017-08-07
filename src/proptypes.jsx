@@ -36,7 +36,7 @@ export const PNumberQuestion = PropTypes.shape(Object.assign({}, Question, {
 // ------------------------------------------------------------
 
 const Response = {
-  questionId: PropTypes.string,
+  question: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.number, PropTypes.object]),
   score: PropTypes.number,
   id: PropTypes.string
@@ -76,7 +76,7 @@ const Questionnaire = {
   created_at: PropTypes.number,
   last_modified: PropTypes.number,
   title: PropTypes.string,
-  responsesIds: PropTypes.arrayOf(PropTypes.string)
+  responses: PropTypes.arrayOf(PropTypes.string)
 };
 export const PQuestionnaire = PropTypes.shape(Questionnaire);
 
@@ -91,7 +91,7 @@ const Group = {
   title: PropTypes.string,
   description: PropTypes.string,
   questionsIds: PropTypes.arrayOf(PropTypes.string),
-  questionnairesIds: PropTypes.arrayOf(PropTypes.string),
+  questionnaires: PropTypes.arrayOf(PropTypes.string),
   categories: PropTypes.arrayOf(PropTypes.string)
 };
 export const PGroup = PropTypes.shape(Group);

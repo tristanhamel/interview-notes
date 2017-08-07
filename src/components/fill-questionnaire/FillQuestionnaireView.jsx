@@ -39,7 +39,7 @@ export class FillQuestionnaireView extends React.Component{
               <h4>{cat}</h4>
               <div className="questions">
                 {this.props.group.questions[cat].map((q, j) => {
-                  const response = this.props.questionnaire.responses.find(r => r.questionId === q.id);
+                  const response = this.props.questionnaire.responses.find(r => r.question === q.id);
                   return <Question question={q}
                                    key={j}
                                    response={response}

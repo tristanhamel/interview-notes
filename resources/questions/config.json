@@ -80,6 +80,14 @@
 			"required": false,
 			"id": "step",
 			"order": 9
-		}
+		},
+        "group": {
+          "name": "group",
+          "type": "string",
+          "typeLabel": "string",
+          "required": true,
+          "id": "group",
+          "order": 10
+        }
 	}
 }

@@ -43,7 +43,7 @@ export const QuestionnairesTable = (props) => {
                   </td>
 
                   {props.group.questionnaires.map((q, k) => {
-                    const response = q.responses.find(r => r.questionId === question.id);
+                    const response = q.responses.find(r => r.question === question.id);
 
                     return (
                       <td key={k}

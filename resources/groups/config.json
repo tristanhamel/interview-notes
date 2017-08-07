@@ -17,20 +17,20 @@
 			"id": "description",
 			"order": 1
 		},
-		"questionsIds": {
-			"name": "questionsIds",
+		"questions": {
+			"name": "questions",
 			"type": "array",
 			"typeLabel": "array",
 			"required": false,
-			"id": "questionsIds",
+			"id": "questions",
 			"order": 2
 		},
-		"questionnairesIds": {
-			"name": "questionnairesIds",
+		"questionnaires": {
+			"name": "questionnaires",
 			"type": "array",
 			"typeLabel": "array",
 			"required": false,
-			"id": "questionnairesIds",
+			"id": "questionnaires",
 			"order": 3
 		},
 		"categories": {

@@ -1,17 +1,15 @@
 import * as actions from '../constants/ActionTypes';
 import { batchActions } from 'redux-batched-actions';
+import { makePOSTRequest } from './requests.actions';
 
 export function addQuestionnaire(title, groupId) {
-  const newQuestionnaire = {
-    title,
-    id: `${Date.now()}`,
-    created_at: Date.now(),
-    las_modified: Date.now(),
-    responses: []
-  };
+  //TODO: add support for optimistic update
+  const newQuestionnaire = { title };
 
   return (dispatch, getState) => {
     groupId = groupId || getState().selectedGroup;
+
+    return makePOSTRequest(endpoints.QUESTIONNAIRES)
 
     dispatch({type: actions.QUESTIONNAIRES_ADD, payload: newQuestionnaire});
     dispatch({type: actions.GROUPS_ADD_QUESTIONNAIRE, payload: {groupId, questionnaireId: newQuestionnaire.id}});
@@ -20,13 +18,13 @@ export function addQuestionnaire(title, groupId) {
 
 export function deleteQuestionnaire(id, groupId) {
   return (dispatch, getState) => {
-    const responsesIds = getState().questionnaires
+    const responses = getState().questionnaires
       .find(q => q.id === id)
-      .responsesIds;
+      .responses;
 
     dispatch(batchActions([
       {type: actions.QUESTIONNAIRES_REMOVE, payload: id},
-      {type: actions.RESPONSES_DELETE_MULTIPLE, payload: responsesIds},
+      {type: actions.RESPONSES_DELETE_MULTIPLE, payload: responses},
       {type: actions.GROUPS_REMOVE_QUESTIONNAIRE, payload: { groupId, questionnaireId: id}}
     ]));
   };

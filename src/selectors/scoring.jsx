@@ -3,7 +3,7 @@ export function scoring(questionnaires, questions, oldResponses) {
   const responses = questions
     .reduce((ar, question) => {
       const weightedResponses = oldResponses
-        .filter(r => r.questionId === question.id);
+        .filter(r => r.question === question.id);
 
       if(question.score === 'auto') {
         const minMax = weightedResponses
@@ -38,8 +38,8 @@ export function scoring(questionnaires, questions, oldResponses) {
       q,
       {
         responses: responses
-          .filter(r => q.responsesIds.indexOf(r.id) !== -1),
-        score: q.responsesIds
+          .filter(r => q.responses.indexOf(r.id) !== -1),
+        score: q.responses
           .map(id => responses.find(r => r.id === id))
           .reduce((total, r) => {
             return total + r.score;

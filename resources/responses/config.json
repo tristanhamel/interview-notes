@@ -1,12 +1,12 @@
 {
 	"type": "Collection",
 	"properties": {
-		"questionId": {
-			"name": "questionId",
+		"question": {
+			"name": "question",
 			"type": "string",
 			"typeLabel": "string",
 			"required": true,
-			"id": "questionId",
+			"id": "question",
 			"order": 0
 		},
 		"score": {

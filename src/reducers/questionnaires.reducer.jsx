@@ -30,7 +30,7 @@ export const questionnaires = (state = initialState, {type, payload}) => {
 
       return state
         .map(q => payload.questionnaireId !== q.id ? q :
-          Object.assign({}, q, {responsesIds: [...q.responsesIds, payload.responseId]}));
+          Object.assign({}, q, {responses: [...q.responses, payload.responseId]}));
     }
 
     case actions.QUESTIONNAIRES_DELETE_RESPONSE: {
