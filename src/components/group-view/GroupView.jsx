@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { PGroup } from '../../proptypes';
+import { PGroupReselect } from '../../proptypes';
 import { Link } from 'react-router-dom';
 
 import { QuestionnairesTable } from './QuestionnairesTable';
@@ -86,5 +86,5 @@ GroupView.propTypes = {
   onDeleteGroup: PropTypes.func,
   onDeleteQuestionnaire: PropTypes.func,
   onAddQuestionnaire: PropTypes.func,
-  group: PGroup
+  group: PGroupReselect
 };

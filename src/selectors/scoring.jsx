@@ -40,7 +40,6 @@ export function scoring(questionnaires, questions, oldResponses) {
         responses: responses
           .filter(r => q.responses.indexOf(r.id) !== -1),
         score: q.responses
-          .map(id => responses.find(r => r.id === id))
           .reduce((total, r) => {
             return total + r.score;
           }, 0)

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { templateQuestions } from '../../constants/templateQuestions';
-import { PGroup } from '../../proptypes';
+import { PGroupReselect } from '../../proptypes';
 import { EditText } from '../EditText';
 import { AddQuestion } from './AddQuestion';
 import { EditQuestion } from './EditQuestion';
@@ -133,7 +133,7 @@ export class EditTemplateView extends React.Component {
 }
 
 EditTemplateView.propTypes = {
-  group: PGroup.isRequired,
+  group: PGroupReselect.isRequired,
   onDeleteCategory: PropTypes.func,
   onAddQuestion: PropTypes.func.isRequired,
   onDeleteQuestion: PropTypes.func.isRequired,
