@@ -33,7 +33,12 @@ export class GroupView extends React.Component{
                       textClass="group-title-edit h2">
             </EditText>
             <span className="glyphicon glyphicon-trash action-icon"
-                  onClick={e => this.deleteGroup(e)}></span>
+                  onClick={() => this.props.openModal('CONFIRM_DELETE', {
+                    message: 'Are you sure you want to delete this group?',
+                    confirmDelete: this.props.onDeleteGroup
+                  }
+            )}>
+            </span>
 
             <div className="small text-muted group-details">
               <div>Created on {new Date(this.props.group.created_at).toDateString()}</div>
@@ -86,5 +91,6 @@ GroupView.propTypes = {
   onDeleteGroup: PropTypes.func,
   onDeleteQuestionnaire: PropTypes.func,
   onAddQuestionnaire: PropTypes.func,
-  group: PGroupReselect
+  group: PGroupReselect,
+  openModal: PropTypes.func
 };

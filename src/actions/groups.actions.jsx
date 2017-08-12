@@ -67,14 +67,21 @@ export function editGroupProp(prop, groupId) {
 }
 
 export function deleteGroup(groupId) {
-  return (dispatch) => {
+  return (dispatch, getState) => {
 
     // db update in background
     const url = `${endPoints.GROUPS}/${groupId}`;
     makeDELETERequest(url);
 
     // optimistic local update
-    return dispatch({type: actions.GROUPS_REMOVE, payload: groupId});
+    const group = getState().groups.find(g => g.id === groupId);
+    const responseIds = group.questions.reduce((a, q) => [...a, ...q.responses], []);
+    return dispatch(batchActions([
+      {type: actions.GROUPS_REMOVE, payload: groupId},
+      {type: actions.QUESTIONS_DELETE_MULTIPLE, payload: group.questions},
+      {type: actions.RESPONSES_DELETE_MULTIPLE, payload: responseIds},
+      {type: actions.QUESTIONNAIRES_DELETE_MULTIPLE, payload: group.questionnaires},
+    ]));
   };
 }
 

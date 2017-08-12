@@ -12,8 +12,8 @@ import { enableBatching } from 'redux-batched-actions';
 
 import { rootReducer } from './reducers/reducers';
 
-// import initialState from './dummy-state.json';
-import { initialState } from './reducers/initialState';
+import initialState from './dummy-state.json';
+// import { initialState } from './reducers/initialState';
 
 import { Menu } from './components/Menu';
 import { Main } from './components/Main';

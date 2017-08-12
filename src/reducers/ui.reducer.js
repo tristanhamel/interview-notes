@@ -2,6 +2,7 @@ import * as actions from '../constants/ActionTypes';
 
 export const initialState = {
   currentModal: null,
+  modalData: null,
   isDataLoading: false,
   dataLoadingError: null
 };
@@ -9,10 +10,10 @@ export const initialState = {
 export const ui = (state = initialState, {type, payload}) => {
   switch (type) {
     case actions.UI_SET_MODAL:
-      return {...state, currentModal: payload};
+      return {...state, currentModal: payload.modalId, modalData: payload.modalData};
 
     case actions.UI_RESET_MODAL:
-      return {...state, currentModal: null};
+      return {...state, currentModal: null, modalData: null};
 
     case actions.UI_ON_RECEIVE:
       return {...state, isDataLoading: false};

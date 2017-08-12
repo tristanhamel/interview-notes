@@ -1,5 +1,6 @@
 import { GroupView } from './GroupView';
 import { connect } from 'react-redux';
+import { setModal } from '../../actions/ui.actions';
 
 import { groupsWithScores } from '../../selectors/groups.selector';
 import { editGroupProp, deleteGroup } from '../../actions/groups.actions';
@@ -13,7 +14,8 @@ const mapDispatchToProps = dispatch => ({
   onAddQuestionnaire: (title, groupId) => dispatch(addQuestionnaire(title, groupId)),
   onDeleteQuestionnaire: id => dispatch(deleteQuestionnaire(id)),
   onEditGroupProp: (prop, id) => dispatch(editGroupProp(prop, id)),
-  onDeleteGroup: (id) => dispatch(deleteGroup(id))
+  onDeleteGroup: (id) => dispatch(deleteGroup(id)),
+  openModal: (modalId, modalData) => dispatch(setModal(modalId, modalData))
 });
 
 export const Group = connect(mapStateToProps, mapDispatchToProps)(GroupView);

@@ -19,7 +19,11 @@ export const ModalWrapper = props => {
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        {props.children}
+
+        <div className="modal-body">
+          {props.children}
+        </div>
+
       </div>
     </div>
   );

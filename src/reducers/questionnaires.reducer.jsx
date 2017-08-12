@@ -10,8 +10,11 @@ export const questionnaires = (state = initialState, {type, payload}) => {
     case actions.QUESTIONNAIRES_ADD_MULTIPLE:
       return [...state, ...payload];
 
-    case actions.QUESTIONNAIRES_REMOVE:
+    case actions.QUESTIONNAIRES_DELETE:
       return state.filter(q => q.id !== payload);
+
+    case actions.QUESTIONNAIRES_DELETE_MULTIPLE:
+      return state.filter(q => !payload.includes(q.id));
 
     case actions.QUESTIONNAIRES_EDIT: {
       const questionnaire = state.find(q => q.id === payload.questionnaireId);

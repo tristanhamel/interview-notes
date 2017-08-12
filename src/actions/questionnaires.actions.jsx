@@ -9,7 +9,7 @@ export function addQuestionnaire(title, groupId) {
   return (dispatch, getState) => {
     groupId = groupId || getState().selectedGroup;
 
-    return makePOSTRequest(endpoints.QUESTIONNAIRES)
+    // return makePOSTRequest(endpoints.QUESTIONNAIRES)
 
     dispatch({type: actions.QUESTIONNAIRES_ADD, payload: newQuestionnaire});
     dispatch({type: actions.GROUPS_ADD_QUESTIONNAIRE, payload: {groupId, questionnaireId: newQuestionnaire.id}});
@@ -23,7 +23,7 @@ export function deleteQuestionnaire(id, groupId) {
       .responses;
 
     dispatch(batchActions([
-      {type: actions.QUESTIONNAIRES_REMOVE, payload: id},
+      {type: actions.QUESTIONNAIRES_DELETE, payload: id},
       {type: actions.RESPONSES_DELETE_MULTIPLE, payload: responses},
       {type: actions.GROUPS_REMOVE_QUESTIONNAIRE, payload: { groupId, questionnaireId: id}}
     ]));

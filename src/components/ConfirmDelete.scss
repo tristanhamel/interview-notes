@@ -1,0 +1,10 @@
+.btn-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .btn {
+    margin: 1rem;
+    width: 100%;
+  }
+}

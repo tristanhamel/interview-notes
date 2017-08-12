@@ -33,21 +33,13 @@
 			"id": "questionnaires",
 			"order": 3
 		},
-		"categories": {
-			"name": "categories",
-			"type": "array",
-			"typeLabel": "array",
-			"required": false,
-			"id": "categories",
-			"order": 4
-		},
 		"owner": {
 			"name": "owner",
 			"type": "string",
 			"typeLabel": "string",
 			"required": false,
 			"id": "owner",
-			"order": 5
+			"order": 4
 		},
 		"created": {
 			"name": "created",
@@ -55,7 +47,7 @@
 			"typeLabel": "number",
 			"required": false,
 			"id": "created",
-			"order": 6
+			"order": 5
 		},
 		"modified": {
 			"name": "modified",
@@ -63,7 +55,7 @@
 			"typeLabel": "number",
 			"required": false,
 			"id": "modified",
-			"order": 7
+			"order": 6
 		}
 	}
 }
