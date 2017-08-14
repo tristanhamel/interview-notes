@@ -22,12 +22,6 @@ export function login(data) {
 
 export function logout() {
   return (dispatch) => {
-    // delete cookies
-    // document.cookie.split(';').forEach(c => {
-    //   const name = c.indexOf('=') > -1 ? c.substr(0, c.indexOf('=')) : c;
-    //   document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT` ;
-    // });
-
     // clear store
     dispatch(batchActions([
       {type: actions.GROUPS_RESET},
@@ -37,7 +31,7 @@ export function logout() {
       {type: actions.USER_RESET}
     ]));
 
-    return dispatch(makePOSTRequest(`${endPoints.USER}/logout`))
-      .then(r => console.log(r));
+    // delete session
+    return dispatch(makePOSTRequest(`${endPoints.USER}/logout`));
   };
 }

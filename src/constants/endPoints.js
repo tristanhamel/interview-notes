@@ -5,4 +5,5 @@ export const endPoints = {
   GROUPS: `${domain}/groups`,
   USER: `${domain}/users`,
   QUESTIONS: `${domain}/questions`,
+  RESPONSES: `${domain}/responses`,
 };
