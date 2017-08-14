@@ -19,6 +19,9 @@ export const questions = (state = initialState, {type, payload}) => {
     case actions.QUESTIONS_DELETE_MULTIPLE:
       return state.filter(q => payload.indexOf(q.id) === -1);
 
+    case actions.QUESTIONS_RESET:
+      return [];
+
     default:
       return state;
   }

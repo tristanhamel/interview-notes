@@ -47,6 +47,9 @@ export const questionnaires = (state = initialState, {type, payload}) => {
           Object.assign({}, q, {responseIds: q.responseIds.filter(r => r !== payload.responseId)}));
     }
 
+    case actions.QUESTIONNAIRES_RESET:
+      return [];
+
     default:
       return state;
   }

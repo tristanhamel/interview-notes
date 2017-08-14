@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { PQuestionnaire, PGroup } from '../../proptypes';
+import { PQuestionnaire, PGroupReselect } from '../../proptypes';
 import { EditText } from '../EditText';
 import { Question } from '../questions/Question';
 
@@ -57,7 +57,7 @@ export class FillQuestionnaireView extends React.Component{
 
 FillQuestionnaireView.propTypes = {
   questionnaire: PQuestionnaire,
-  group: PGroup,
+  group: PGroupReselect,
   onEditQuestionnaireProp: PropTypes.func,
   onSubmitResponse: PropTypes.func
 };

@@ -70,6 +70,11 @@ export const groups = (state = initialState, {type, payload}) => {
         .map(g => g.id !== payload.groupId ? g : updatedGroup);
     }
 
+    case actions.GROUPS_RESET: {
+      return [];
+    }
+
+
     // case actions.GROUPS_ADD_CATEGORY: {
     //   const updatedGroup = state.find(g => g.id === payload.groupId);
     //   if(!updatedGroup) {

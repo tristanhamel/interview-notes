@@ -9,11 +9,12 @@
   }
 
   .navbar-username {
-    height: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    align-items: flex-end;
     color: gray;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
 
     .glyphicon {
       font-size: 22px;
@@ -21,6 +22,15 @@
 
     .username {
       padding-left: 5px;
+    }
+
+    .logout {
+      cursor: pointer;
+      font-size: 12px;
+
+      a {
+        color: gray;
+      }
     }
   }
 }
