@@ -24,6 +24,7 @@ export class GroupView extends React.Component{
   }
 
   render() {
+    console.log(this.props.group.created);
     return (
       <div className="group-view panel panel-default">
         <div className="panel-heading group-heading">
@@ -41,8 +42,8 @@ export class GroupView extends React.Component{
             </span>
 
             <div className="small text-muted group-details">
-              <div>Created on {new Date(this.props.group.created_at).toDateString()}</div>
-              <div>Last modified: {new Date(this.props.group.last_modified).toDateString()}</div>
+              <div>Created on {new Date(this.props.group.created).toDateString()}</div>
+              <div>Last modified: {new Date(this.props.group.modified).toDateString()}</div>
             </div>
           </div>
 

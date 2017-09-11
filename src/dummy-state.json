@@ -4,8 +4,8 @@
   },
   "groups": [
     {
-      "created_at": 1493646665000,
-      "last_modified": 1493646665000,
+      "created": 1493646665000,
+      "modified": 1493646665000,
       "id": "1",
       "title": "Group1",
       "description": "in August",
@@ -15,8 +15,8 @@
     },
     {
       "id": "2",
-      "created_at": 1493733065000,
-      "last_modified": 1493733065000,
+      "created": 1493733065000,
+      "modified": 1493733065000,
       "title": "Group2",
       "description": "in September",
       "questionnaires": ["3"],
@@ -26,24 +26,24 @@
   ],
   "questionnaires": [
     { "id": "1",
-      "created_at": 1493646665000,
-      "last_modified": 1493646665000,
+      "created": 1493646665000,
+      "modified": 1493646665000,
       "title": "company1",
       "description": "Some great company",
       "responses": ["4", "5", "6", "7"]
     },
     {
       "id": "2",
-      "created_at": 1493646665000,
-      "last_modified": 1493646665000,
+      "created": 1493646665000,
+      "modified": 1493646665000,
       "title": "company2",
       "description": "Some other great company",
       "responses": ["1", "2", "3", "8"]
     },
     {
       "id": "3",
-      "created_at": 1493733065000,
-      "last_modified": 1493733065000,
+      "created": 1493733065000,
+      "modified": 1493733065000,
       "title": "company3",
       "description": "Yet another great company",
       "responses": []

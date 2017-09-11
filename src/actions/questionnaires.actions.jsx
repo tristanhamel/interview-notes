@@ -31,7 +31,7 @@ export function deleteQuestionnaire(id, groupId) {
 }
 
 export function editQuestionnaire(props, questionnaireId) {
-  props.last_modified = Date.now();
+  props.modified = Date.now();
 
   return dispatch => {
     dispatch({type: actions.QUESTIONNAIRES_EDIT, payload: {props, questionnaireId}});

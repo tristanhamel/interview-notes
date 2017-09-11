@@ -73,8 +73,8 @@ export const PQuestionnaireTemplate = PropTypes.shape({
 
 const Questionnaire = {
   id: PropTypes.string,
-  created_at: PropTypes.number,
-  last_modified: PropTypes.number,
+  created: PropTypes.number,
+  modified: PropTypes.number,
   title: PropTypes.string,
   responses: PropTypes.arrayOf(PropTypes.string)
 };
@@ -86,8 +86,8 @@ export const PQuestionnaire = PropTypes.shape(Questionnaire);
 
 const Group = {
   id: PropTypes.string,
-  created_at: PropTypes.number,
-  last_modified: PropTypes.number,
+  created: PropTypes.number,
+  modified: PropTypes.number,
   title: PropTypes.string,
   description: PropTypes.string,
   questions: PropTypes.arrayOf(PropTypes.string),
@@ -110,7 +110,7 @@ export const PGroupReselect = PropTypes.shape(GroupReselect);
 
 export const PState = {
   selectedGroup: PropTypes.string,
-  last_modified: PropTypes.number,
+  modified: PropTypes.number,
   edited: PropTypes.string,
   groups: PropTypes.arrayOf(PGroup),
   questionnaires: PropTypes.arrayOf(PQuestionnaire),
