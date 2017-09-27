@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { PGroupReselect } from '../../proptypes';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import { QuestionnairesTable } from './QuestionnairesTable';
 import { EditText } from '../EditText';
@@ -24,8 +24,7 @@ export class GroupView extends React.Component{
   }
 
   render() {
-    console.log(this.props.group.created);
-    return (
+    return !this.props.group ? (<Redirect to='/' />) : (
       <div className="group-view panel panel-default">
         <div className="panel-heading group-heading">
           <div>
@@ -36,7 +35,7 @@ export class GroupView extends React.Component{
             <span className="glyphicon glyphicon-trash action-icon"
                   onClick={() => this.props.openModal('CONFIRM_DELETE', {
                     message: 'Are you sure you want to delete this group?',
-                    confirmDelete: this.props.onDeleteGroup
+                    confirmDelete: () => this.props.onDeleteGroup(this.props.group.id)
                   }
             )}>
             </span>

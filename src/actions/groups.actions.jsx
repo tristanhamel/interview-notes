@@ -75,7 +75,7 @@ export function deleteGroup(groupId) {
 
     // optimistic local update
     const group = getState().groups.find(g => g.id === groupId);
-    const responseIds = group.questions.reduce((a, q) => [...a, ...q.responses], []);
+    const responseIds = getState().responses.filter(r => group.questions.includes(r));
     return dispatch(batchActions([
       {type: actions.GROUPS_REMOVE, payload: groupId},
       {type: actions.QUESTIONS_DELETE_MULTIPLE, payload: group.questions},

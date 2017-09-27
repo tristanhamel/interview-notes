@@ -14,14 +14,17 @@ export class ConfirmDelete extends React.Component {
 
   render() {
     return ( 
-      <ModalWrapper title="Log in or sign up"
+      <ModalWrapper title="Confirm"
                     hideModal={this.props.hideModal}>
         <div>
           {this.props.message}
         </div>
         <div className="btn-row">
           <button className="btn btn-success"
-                  onClick={() => this.props.confirmDelete()}>
+                  onClick={() => {
+                    this.props.confirmDelete();
+                    this.props.hideModal();
+                  }}>
             Yes
           </button>
           <button className="btn btn-danger"
